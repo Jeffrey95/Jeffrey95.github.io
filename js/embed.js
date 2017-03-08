@@ -3,7 +3,7 @@
 function sskadmin(e) {
     var ssk = '';
     if(e.user_id==13447360){
-        ssk = '<span class="sskadmin">Ruke'
+        ssk = '<span class="sskadmin">博主'
     }
     return ssk+"</span> ";
 }
