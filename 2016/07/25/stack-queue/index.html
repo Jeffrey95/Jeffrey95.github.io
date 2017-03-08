@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            stack&amp;&amp;queue | 
+        
+        Hello World
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/mysource/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/mysource/favicon.png">
+    <link rel="apple-touch-icon" href="/img/mysource/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="疯疯">
+    <meta name="description" content="Be a better man">
+    <meta name="keywords" content="null,ACM,queue,stack">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hello World">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.qiujinfeng.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="stack&amp;&amp;queue | Hello World">
+    <meta property="og:description" content="Be a better man">
+    <meta property="og:article:tag" content="ACM"> <meta property="og:article:tag" content="queue"> <meta property="og:article:tag" content="stack"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+        
+            <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+        
+            <meta name="google-site-verification" content="qwpiLtLdUJ0n0fbhZibibWYv_CqpXlFjiCZp8L1cxXM" />
+        
+            <meta name="360-site-verification" content="f527031e1196cb845faf5fa260d46378" />
+        
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stack栈"><span class="post-toc-number">1.</span> <span class="post-toc-text">stack栈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#举个栗子"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">举个栗子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生活中的例子"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">生活中的例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最基本的操作"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">最基本的操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#栈的实现"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">栈的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#举个例子"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">举个例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更多练习"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">更多练习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些注意点"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">一些注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机中的栈"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">计算机中的栈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#递归与堆栈"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">递归与堆栈</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#queue队列"><span class="post-toc-number">2.</span> <span class="post-toc-text">queue队列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生活中的例子-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">生活中的例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最基本的操作-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">最基本的操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#队列的实现"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">队列的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#举个例子-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">举个例子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更多练习-1"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">更多练习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些注意点-1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">一些注意点</span></a></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8810.31.03.png)">
+    
+            <p class="article-headline-p">
+                stack&&queue
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>疯疯</strong>
+        <span>7月 25, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ACM/">ACM</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/queue/">queue</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/stack/">stack</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=stack&amp;&amp;queue&url=https://blog.qiujinfeng.com//2016/07/25/stack-queue/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=stack&amp;&amp;queue&url=https://blog.qiujinfeng.com//2016/07/25/stack-queue/index.html&via=疯疯" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.qiujinfeng.com//2016/07/25/stack-queue/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.qiujinfeng.com//2016/07/25/stack-queue/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hello World&title=stack&amp;&amp;queue&summary=Be a better man&pics=https://blog.qiujinfeng.com/img/mysource/favicon.png&url=https://blog.qiujinfeng.com/2016/07/25/stack-queue/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>这是给协会上课介绍栈和队列时用的课件，简单介绍了栈和队列这两种数据结构，并列出了一些STL中stack和queue的一些用法。<br><a id="more"></a></p>
+<h2 id="stack栈"><a href="#stack栈" class="headerlink" title="stack栈"></a>stack栈</h2><h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8810.31.03.png" alt="栈"><a href="啊哈磊.啊哈！算法[M].北京：人民邮电出版社，2014：26-35.">^1</a><br>桶里面有三个球，从下往上分别是<code>3 1 2</code>，那我们想要取出<code>2</code>,需要先取出<code>3</code>，再取出<code>1</code>，最后才能取出<code>2</code><br>这体现了<code>栈</code>的特点<code>FILO（First in Last Out）</code>（先进后出）</p>
+<!--more-->
+<h3 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h3><ol>
+<li>吃饭的时候要把碗上层的饭吃掉或者扒开，才能吃碗底部的饭。</li>
+<li>浏览网页的时候，需要退回到之前某个网页，需要一步步地点击后退键。</li>
+<li>装填手枪弹夹，最后装入得那颗子弹，是第一颗打出去的。</li>
+</ol>
+<h3 id="最基本的操作"><a href="#最基本的操作" class="headerlink" title="最基本的操作"></a>最基本的操作</h3><p><code>PUSH</code>:压栈、进栈……<br><code>POP</code>:弹栈，出栈……<br><code>TOP</code>:取栈顶元素</p>
+<h3 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h3><ol>
+<li><p>数组模拟<br><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8811.34.35.png" alt="数组模拟栈"></p>
+<pre class=" language-cpp"><code class="language-cpp">   <span class="token comment" spellcheck="true">// 入栈</span>
+  stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">;</span>
+  top<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 出栈</span>
+  top<span class="token operator">--</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//取栈顶元素</span>
+Request <span class="token operator">=</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li><p>STL中得stack容器</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty</td>
+<td>Test whether container is empty (public member function )</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Return size (public member function )</td>
+</tr>
+<tr>
+<td>top</td>
+<td>Access next element (public member function )</td>
+</tr>
+<tr>
+<td>push</td>
+<td>Insert element (public member function )</td>
+</tr>
+<tr>
+<td>emplace</td>
+<td>Construct and insert element (public member function )</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>Remove top element (public member function )</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>Swap contents (public member function )</td>
+</tr>
+</tbody>
+</table>
+<p>详细用法参考：<a href="http://www.cplusplus.com/reference/stack/stack/?kw=stack" target="_blank" rel="external">cplusplus stack</a></p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-24%20%E4%B8%8A%E5%8D%8812.36.29.png" alt="例题"><br><a href="http://acm.nyist.net/JudgeOnline/problem.php?pid=2" target="_blank" rel="external">题目地址</a></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        string s<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> s<span class="token punctuation">;</span>
+        stack<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">></span> st<span class="token punctuation">;</span>
+        <span class="token keyword">bool</span> ok <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'('</span><span class="token operator">||</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'['</span><span class="token punctuation">)</span>    st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'('</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">']'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'['</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span> ok<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        ok<span class="token operator">?</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Yes\n"</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"No\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="更多练习"><a href="#更多练习" class="headerlink" title="更多练习"></a>更多练习</h3><p><a href="http://acm.hust.edu.cn/vjudge/contest/117386#problem/F" target="_blank" rel="external">POJ 1363 Rails</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/10936" target="_blank" rel="external">POJ 1028 Web Navigation</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/16689" target="_blank" rel="external">POJ 1686 Lazy Math Instructor</a><br>有关递归的问题例如：深度优先搜索(DFS) and so on…<br><a href="http://acm.hust.edu.cn/vjudge/contest/116937#problem/C" target="_blank" rel="external">Hdu 1241</a></p>
+<h3 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h3><ol>
+<li>对于多组样例的题目，每组样例注意在使用前先清空栈，防止上一组样例对本次造成影响。<br>STL里的stack<strong>没有</strong><code>clear</code>方法，，所以清空方法如下：<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+或者把stack声明在循环体内部。</li>
+</ol>
+<h3 id="计算机中的栈"><a href="#计算机中的栈" class="headerlink" title="计算机中的栈"></a>计算机中的栈</h3><p>C编译器处理函数的时候，就是使用栈来保存数据的。当函数调用另一个函数时，C编译器将主调函数的所有实参和放回地址压入栈当中，栈指针将移动到合适的位置来容纳这些数据。<br>当进行被调函数时，编译器将栈中实参数据弹出，赋值给函数的形参。在被调用函数执行期间，还可以用栈来保存函数执行过程的局部变量。当被调用函数准备返回时，系统将弹出栈中所有当前函数压如栈中的值，这时，栈指针将移动到被调用函数刚开始执行时的位置。接着被调用函数返回，系统从栈中弹出返回地址，主函数就可以继续执行了。<a href="周颖.程序员的趣味数学修炼[M].北京:清华大学出版社，2014：71-72.">^2</a><br><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8811.09.03.png" alt="函数调用"><br>左图：函数1调用函数2<br>右图：函数2调用结束返回函数1</p>
+<h4 id="递归与堆栈"><a href="#递归与堆栈" class="headerlink" title="递归与堆栈"></a>递归与堆栈</h4><p>递归算法（自身不断调用自身）的程序代码更简洁清晰，可读性更好。但缺点是每次递归调用，需要将返回地址、参数等数据压入堆栈，也就是说，递归内部实现需要消耗额外的空间和时间。如果递归的层次太深，就可能导致堆栈溢出(<code>stack overflow</code>)(俗称的<code>爆栈</code>)，从而使程序执行出错。<br>在OJ上通常的反馈就是<br><code>RE：Runtime Error</code><br>或者<br><code>MLE: Memory Limit Exceeded</code></p>
+<hr>
+<h2 id="queue队列"><a href="#queue队列" class="headerlink" title="queue队列"></a>queue队列</h2><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-24%20%E4%B8%8A%E5%8D%881.14.12.png" alt="队列数据结构"><br>解密规则：首先将第<code>1</code>个数删除,紧接着将第<code>2</code>个数放到这串数的末尾,再将第<code>3</code>个数删除并将第<code>4</code>个数放到这串数的末尾,再将第<code>5</code>个数删除…… 直到剩下最后一个数,将最后一个数也删除。按照刚才删除的顺序,把这些删除的数连在一起就是小哈的QQ啦。</p>
+<p>队列的特点：<code>FIFO(First In First Out)</code>先进先出。</p>
+<h3 id="生活中的例子-1"><a href="#生活中的例子-1" class="headerlink" title="生活中的例子"></a>生活中的例子</h3><p>普通队列</p>
+<ol>
+<li>饭堂排队，先来的先打饭。</li>
+<li>在独木桥上单方向行走，先上桥的先下桥。</li>
+</ol>
+<p>优先队列</p>
+<ol>
+<li>银行VIP来了优先服务。</li>
+<li>军训期间，教官喊队伍里最高的同学出列。该同学出列后，教官喊剩下的同学里最高的同学出列，以此循环。</li>
+</ol>
+<h3 id="最基本的操作-1"><a href="#最基本的操作-1" class="headerlink" title="最基本的操作"></a>最基本的操作</h3><p><code>PUSH_BACK</code>:入队<br><code>POP</code>:出队<br><code>Front</code>:取队头元素</p>
+<h3 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h3><ol>
+<li>数组模拟</li>
+</ol>
+<p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-25%20%E4%B8%8B%E5%8D%888.54.29.png" alt="数组模拟队列"></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//入队</span>
+queue<span class="token punctuation">[</span>tail<span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">;</span>
+tail<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//出队</span>
+head<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code>//判空
+head==tail
+</code></pre><ol>
+<li>STL中的queue容器</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty</td>
+<td>Test whether container is empty (public member function )</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Return size (public member function )</td>
+</tr>
+<tr>
+<td>front</td>
+<td>Access next element (public member function )</td>
+</tr>
+<tr>
+<td>back</td>
+<td>Access last element (public member function )</td>
+</tr>
+<tr>
+<td>push</td>
+<td>Insert element (public member function )</td>
+</tr>
+<tr>
+<td>emplace</td>
+<td>Construct and insert element (public member function )</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>Remove next element (public member function )</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>Swap contents (public member function )</td>
+</tr>
+</tbody>
+</table>
+<p>详细用法参考：<a href="http://www.cplusplus.com/reference/queue/queue/?kw=queue" target="_blank" rel="external">cplusplus queue</a></p>
+<h3 id="举个例子-1"><a href="#举个例子-1" class="headerlink" title="举个例子"></a>举个例子</h3><p>好像没有裸队列的题目，所以这里给一个基本的操作代码</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> q<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"size:%d\n"</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="更多练习-1"><a href="#更多练习-1" class="headerlink" title="更多练习"></a>更多练习</h3><p>基础队列：<br> bfs相关题目。<br><a href="http://acm.hust.edu.cn/vjudge/problem/20620" target="_blank" rel="external">HDU 1728 逃离迷宫</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/15204" target="_blank" rel="external">POJ 3278 Catch That Cow</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/18463" target="_blank" rel="external">HDU 1495 非常可乐</a></p>
+<p>优先队列：<br><a href="http://acm.hust.edu.cn/vjudge/problem/23010" target="_blank" rel="external">HDU 4006 The kth great number</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/25192" target="_blank" rel="external">HDU 1896 看病要排队</a></p>
+<h3 id="一些注意点-1"><a href="#一些注意点-1" class="headerlink" title="一些注意点"></a>一些注意点</h3><ol>
+<li>上面用数组模拟的队列，由于head和rail一直向后移动，所以占用的空间是非常大的。因此就有了<code>循环队列</code>。</li>
+<li>优先队列也常用语贪心算法当中。优先队列的优先级可以通过<code>重载结构体的&lt;运算符</code>，<code>functional头文件中的greater/less</code>，<code>自定义比较结构</code>来实现。<a href="http://www.cnblogs.com/summerRQ/articles/2470130.html" target="_blank" rel="external">这里</a>有一篇博文讲解。</li>
+</ol>
+<hr>
+<p>参考资料</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/07/25/stack-queue/"
+        data-url="https://blog.qiujinfeng.com/2016/07/25/stack-queue/"
+        data-title="stack&amp;&amp;queue">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/09/30/授人以渔-解决Matlab中文乱码/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/05/27/Virtual-Judge爬虫宝宝诞生记（更新中）/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/mysource/sidebar_header1.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="疯疯's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        974514569@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="小伙伴">
+                
+                    <i class="material-icons sidebar-material-icons">account_box</i>
+                
+                小伙伴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/1921356542/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Jeffrey95" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/qiu-jin-feng-47" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Hello World
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   
+
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qiujinfeng"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

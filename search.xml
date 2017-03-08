@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[a test blog]]></title>
+      <url>https://blog.qiujinfeng.com/2017/03/07/a-test-blog/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>人生苦短，我用python</p>
+</blockquote>
+<a id="more"></a>
+<p>之前一直说要学python，可是都没有很系统性地学习下来，导致一直没有什么结果。大三专业分流，选的智能专业（当时一时脑热），感觉以后应该会经常用到python，所以在这个暑假还是好好先自学一下吧。<br>这篇博文主要用来记录平时学习的一点心得体会，便于以后忘记的时候来查找和复习。窃以为入门教材和入门老师是非常重要的，一个好的引路人能很好地提高学习的热情，并使我们少走很多弯路。在这里我推荐<a href="https://github.com/qiwsir/StarterLearningPython" target="_blank" rel="external">《跟老齐学Python》（入门教程）</a>,这是《跟老齐学Python》的在线电子版本，目前作者仍在维护更新中，不断在添加python3的内容。这本书里的语言风趣，讲解也比较详细，非常适合新手，使之对python有个大体的了解。</p>
+<hr>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="判断对象是否可迭代-Iterable"><a href="#判断对象是否可迭代-Iterable" class="headerlink" title="判断对象是否可迭代(Iterable)"></a>判断对象是否可迭代(Iterable)</h2><p>什么是迭代，下面引用老齐教程里的一句话 [^1]</p>
+<blockquote>
+<p>“迭”在汉语中的意思是“屡次，反复”。如:高潮迭起。那么跟“代”组合，就可以理解为“反复‘代’”，是不是有点“子子孙孙”的意思了？“结婚-生子-子成长-结婚-生子-子成长-…”，你是不是也在这个“迭代”的过程中呢？</p>
+<p>给个稍微严格的定义，来自维基百科。“迭代是重复反馈过程的活动，其目的通常是为了接近并到达所需的目标或结果。”</p>
+</blockquote>
+<p>判断对像是否可迭代的方法：</p>
+<ol>
+<li>用内建函数hasattr()，对该对象是否有<code>__iter__</code>函数<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> str<span class="token operator">=</span><span class="token string">"Iterable"</span>
+<span class="token operator">>></span><span class="token operator">></span> hasattr<span class="token punctuation">(</span>str<span class="token punctuation">,</span><span class="token string">'__iter__'</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span> <span class="token comment" spellcheck="true">#python3返回的是True</span>
+</code></pre>
+</li>
+<li>使用<code>isinstance</code><pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> collections
+<span class="token operator">>></span><span class="token operator">></span> isinstance<span class="token punctuation">(</span><span class="token number">321</span><span class="token punctuation">,</span> collections<span class="token punctuation">.</span>Iterable<span class="token punctuation">)</span>
+<span class="token boolean">False</span>
+</code></pre>
+更多介绍：<br><a href="https://github.com/qiwsir/StarterLearningPython/blob/master/112.md" target="_blank" rel="external">StarterLearningPython/112.md</a><br><a href="https://github.com/qiwsir/StarterLearningPython/blob/master/123.md" target="_blank" rel="external">StarterLearningPython/123.md</a></li>
+</ol>
+<hr>
+<h2 id="判断一个对面是否可以哈希-Hashable"><a href="#判断一个对面是否可以哈希-Hashable" class="headerlink" title="判断一个对面是否可以哈希(Hashable)"></a>判断一个对面是否可以哈希(Hashable)</h2><blockquote>
+<p>不可哈希–unhashable–可变的–list、dict<br>可哈希–hashable–不可变的–str、set、tuple</p>
+</blockquote>
+<p><a href="http://www.ithao123.cn/content-5248239.html" target="_blank" rel="external">如何理解</a></p>
+<hr>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="列表和字符串转化"><a href="#列表和字符串转化" class="headerlink" title="列表和字符串转化"></a>列表和字符串转化</h3><p><code>str.split()</code>：str–&gt;list<br>官方文档：</p>
+<blockquote>
+<p>Help on built-in function split:</p>
+<p>split(…) method of builtins.str instance<br>    S.split(sep=None, maxsplit=-1) -&gt; list of strings</p>
+<p> Return a list of the words in S, using sep as the<br>    delimiter string.  If maxsplit is given, at most maxsplit<br>    splits are done. If sep is not specified or is None, any<br>    whitespace string is a separator and empty strings are<br>    removed from the result.</p>
+</blockquote>
+<p>如果split()<strong>不输入*</strong>任何参数，显示就是见到任何分割符号，就用其分割了。</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> s <span class="token operator">=</span> <span class="token string">"I am \t qiujinfeng\nHow are you"</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+I am     qiujinfeng
+How are you
+<span class="token operator">>></span><span class="token operator">></span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token string">'I'</span><span class="token punctuation">,</span> <span class="token string">'am'</span><span class="token punctuation">,</span> <span class="token string">'qiujinfeng'</span><span class="token punctuation">,</span> <span class="token string">'How'</span><span class="token punctuation">,</span> <span class="token string">'are'</span><span class="token punctuation">,</span> <span class="token string">'you'</span><span class="token punctuation">]</span>
+</code></pre>
+<p><code>[sep].join(list)</code>:列表-&gt;字符串<br>官方文档：</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> help<span class="token punctuation">(</span>str<span class="token punctuation">.</span>join<span class="token punctuation">)</span>
+Help on built<span class="token operator">-</span><span class="token keyword">in</span> function join<span class="token punctuation">:</span>
+
+join<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> method of builtins<span class="token punctuation">.</span>str instance
+    S<span class="token punctuation">.</span>join<span class="token punctuation">(</span>iterable<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str
+
+    Return a string which <span class="token keyword">is</span> the concatenation of the strings <span class="token keyword">in</span> the
+    iterable<span class="token punctuation">.</span>  The separator between elements <span class="token keyword">is</span> S<span class="token punctuation">.</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>lst<span class="token punctuation">)</span>
+<span class="token string">'wwwzhihucom'</span> <span class="token comment" spellcheck="true">#将lst中的元素连接起来，但没有连接符，表示一个个紧邻着</span>
+<span class="token operator">>></span><span class="token operator">></span> lst <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'www'</span><span class="token punctuation">,</span><span class="token string">'zhihu'</span><span class="token punctuation">,</span><span class="token string">'com'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token string">"."</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>lst<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#以英文的据点作为连接分隔符</span>
+<span class="token string">'www.zhihu.com'</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>lst<span class="token punctuation">)</span>
+<span class="token string">'www zhihu com'</span> <span class="token comment" spellcheck="true">#以空格作为连接的分隔符</span>
+</code></pre>
+<p>更详细的参考：<br><a href="https://github.com/qiwsir/StarterLearningPython/blob/d024a680f763f4cdac16b9fff087371bd51288aa/114.md" target="_blank" rel="external">StarterLearningPython/114.md/回顾列表和字符串</a></p>
+<hr>
+<h2 id="字典-dict"><a href="#字典-dict" class="headerlink" title="字典(dict)"></a>字典(dict)</h2><h3 id="创建字典方法"><a href="#创建字典方法" class="headerlink" title="创建字典方法"></a>创建字典方法</h3><ol>
+<li>直接创建<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> mydict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token operator">>></span><span class="token operator">></span> mydict2<span class="token operator">=</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#使用内置函数</span>
+</code></pre>
+</li>
+<li>利用元祖创建字典<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> myT <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"first"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"second"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> type<span class="token punctuation">(</span>myT<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'tuple'</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> dict<span class="token punctuation">(</span>myT<span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'first'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'second'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+<hr>
+<p>[^1]: qiwsir.列表(2)[J/OL].<a href="https://github.com/qiwsir/StarterLearningPython/blob/master/112.md" target="_blank" rel="external">https://github.com/qiwsir/StarterLearningPython/blob/master/112.md</a> ,2016-8-1</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[授人以渔--解决Matlab中文乱码]]></title>
+      <url>https://blog.qiujinfeng.com/2016/09/30/%E6%8E%88%E4%BA%BA%E4%BB%A5%E6%B8%94-%E8%A7%A3%E5%86%B3Matlab%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</url>
+      <content type="html"><![CDATA[<p>本文分析了macOS下Matlab中文乱码的原因，区别于网上很多不通用的方案，对于个人的不同情况能有对应的解决方案，希望能对你有所帮助。<br><a id="more"></a></p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li>系统：OS X EI Captian 10.11.6</li>
+<li>语言与地区设置：简体中文、中国香港</li>
+<li>问题：Matlab中文路径、中文注释、中文字符串等保存后都是乱码。</li>
+</ul>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>直接百度Matlab中文乱码，给出的很多解决方案都是说给把Matlab安装目录下bin文件夹里的lcdata.xml<br>里的</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>locale</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_CN<span class="token punctuation">"</span></span> <span class="token attr-name">encoding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GB2312<span class="token punctuation">"</span></span> <span class="token attr-name">xpg_name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_CN.GB2312<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>改成</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>locale</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_CN<span class="token punctuation">"</span></span> <span class="token attr-name">encoding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token attr-name">xpg_name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_CN.UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>但是这并不能解决所有人的遇到的情况。像我的电脑就不能解决。于是我们需要掌握更具普遍性的解决方案。<br><!--more--><br>首先，我们要知道，出现乱码的情况肯定是由于编码的问题。Matlab启动是会根据电脑设置的语言和地区来选择编码。<br>我们可以打开Matlab安装目录下的<code>bin/lcdata.xml</code>来看看。在Mac里的话，就是在应用程序里找到Matlab–右键–显示包内容–bin–lcdata.xml。<br>打开后我们可以看到这样的条目。<br><img src="https://ome6qqcd0.qnssl.com/lcdata.png" alt="xml"></p>
+<h2 id="获取地区"><a href="#获取地区" class="headerlink" title="获取地区"></a>获取地区</h2><p>易得，<code>locale name</code>指的是地区名，<code>encoding</code>指的是编码。那么，怎么才能获取Matlab当前的编码呢？<br>在Matlab的命令窗口里输入：<code>feature(&#39;locale&#39;)</code><br>就可以得到如下的结果:</p>
+<pre><code>ans =
+               ctype: &#39;zh_HK.UTF-8&#39;
+             collate: &#39;zh_HK.UTF-8&#39;
+                time: &#39;zh_HK.UTF-8&#39;
+             numeric: &#39;en_US_POSIX.UTF-8&#39;
+            monetary: &#39;zh_HK.UTF-8&#39;
+            messages: &#39;en_US.UTF-8&#39;
+            encoding: &#39;UTF-8&#39;
+    terminalEncoding: &#39;UTF-8&#39;
+         jvmEncoding: &#39;UTF-8&#39;
+              status: &#39;MathWorks locale management system initialized.&#39;
+             warning: &#39;&#39;
+</code></pre><p>这里的ctype就是我们需要的。且从这可以明显看出我的地区设置的是zh_HK.<strong>注意我这里的ctype是改过的，所以显示的是zh_HK.UTF-8。</strong><br>然后你就可以在lcdata里搜索你的ctype。例如我这里需要搜索的是<code>zh_Hk</code>。</p>
+<h2 id="修改编码"><a href="#修改编码" class="headerlink" title="修改编码"></a>修改编码</h2><p>假设我的地区设置的是台湾，然后获得的ctype显示的是<code>zh_TW.Big5</code>,那我就需要搜索<code>zh_TW</code>,获取的结果如下</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>locale</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_TW<span class="token punctuation">"</span></span> <span class="token attr-name">encoding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Big5<span class="token punctuation">"</span></span> <span class="token attr-name">xpg_name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_TW.Big5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>alias</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh-Hant<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>locale</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>修改成</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>locale</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_TW<span class="token punctuation">"</span></span> <span class="token attr-name">encoding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token attr-name">xpg_name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh_TW.UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>alias</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zh-Hant<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>locale</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>保存退出。这里你可能没有文件的修改权限，至于如何添加用户对文件的修改权限就不再赘述了。如果用的是vim打开的话直接<code>w!</code>就好了。</p>
+<h1 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h1><p>重启matlab。现在应该就能支持中文路径了。至于之前保存的中文是乱码，现在可能还是乱码。不过现在改成中文之后再打开，中文也不会变成?或者其他乱码了。就酱。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Matlab </tag>
+            
+            <tag> 乱码 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stack&&queue]]></title>
+      <url>https://blog.qiujinfeng.com/2016/07/25/stack-queue/</url>
+      <content type="html"><![CDATA[<p>这是给协会上课介绍栈和队列时用的课件，简单介绍了栈和队列这两种数据结构，并列出了一些STL中stack和queue的一些用法。<br><a id="more"></a></p>
+<h2 id="stack栈"><a href="#stack栈" class="headerlink" title="stack栈"></a>stack栈</h2><h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8810.31.03.png" alt="栈"><a href="啊哈磊.啊哈！算法[M].北京：人民邮电出版社，2014：26-35.">^1</a><br>桶里面有三个球，从下往上分别是<code>3 1 2</code>，那我们想要取出<code>2</code>,需要先取出<code>3</code>，再取出<code>1</code>，最后才能取出<code>2</code><br>这体现了<code>栈</code>的特点<code>FILO（First in Last Out）</code>（先进后出）</p>
+<!--more-->
+<h3 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h3><ol>
+<li>吃饭的时候要把碗上层的饭吃掉或者扒开，才能吃碗底部的饭。</li>
+<li>浏览网页的时候，需要退回到之前某个网页，需要一步步地点击后退键。</li>
+<li>装填手枪弹夹，最后装入得那颗子弹，是第一颗打出去的。</li>
+</ol>
+<h3 id="最基本的操作"><a href="#最基本的操作" class="headerlink" title="最基本的操作"></a>最基本的操作</h3><p><code>PUSH</code>:压栈、进栈……<br><code>POP</code>:弹栈，出栈……<br><code>TOP</code>:取栈顶元素</p>
+<h3 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h3><ol>
+<li><p>数组模拟<br><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8811.34.35.png" alt="数组模拟栈"></p>
+<pre class=" language-cpp"><code class="language-cpp">   <span class="token comment" spellcheck="true">// 入栈</span>
+  stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">;</span>
+  top<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 出栈</span>
+  top<span class="token operator">--</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//取栈顶元素</span>
+Request <span class="token operator">=</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li><p>STL中得stack容器</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty</td>
+<td>Test whether container is empty (public member function )</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Return size (public member function )</td>
+</tr>
+<tr>
+<td>top</td>
+<td>Access next element (public member function )</td>
+</tr>
+<tr>
+<td>push</td>
+<td>Insert element (public member function )</td>
+</tr>
+<tr>
+<td>emplace</td>
+<td>Construct and insert element (public member function )</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>Remove top element (public member function )</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>Swap contents (public member function )</td>
+</tr>
+</tbody>
+</table>
+<p>详细用法参考：<a href="http://www.cplusplus.com/reference/stack/stack/?kw=stack" target="_blank" rel="external">cplusplus stack</a></p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-24%20%E4%B8%8A%E5%8D%8812.36.29.png" alt="例题"><br><a href="http://acm.nyist.net/JudgeOnline/problem.php?pid=2" target="_blank" rel="external">题目地址</a></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        string s<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> s<span class="token punctuation">;</span>
+        stack<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">></span> st<span class="token punctuation">;</span>
+        <span class="token keyword">bool</span> ok <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'('</span><span class="token operator">||</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'['</span><span class="token punctuation">)</span>    st<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'('</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">']'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token string">'['</span><span class="token punctuation">)</span> st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> ok <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span> ok<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        ok<span class="token operator">?</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Yes\n"</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"No\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="更多练习"><a href="#更多练习" class="headerlink" title="更多练习"></a>更多练习</h3><p><a href="http://acm.hust.edu.cn/vjudge/contest/117386#problem/F" target="_blank" rel="external">POJ 1363 Rails</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/10936" target="_blank" rel="external">POJ 1028 Web Navigation</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/16689" target="_blank" rel="external">POJ 1686 Lazy Math Instructor</a><br>有关递归的问题例如：深度优先搜索(DFS) and so on…<br><a href="http://acm.hust.edu.cn/vjudge/contest/116937#problem/C" target="_blank" rel="external">Hdu 1241</a></p>
+<h3 id="一些注意点"><a href="#一些注意点" class="headerlink" title="一些注意点"></a>一些注意点</h3><ol>
+<li>对于多组样例的题目，每组样例注意在使用前先清空栈，防止上一组样例对本次造成影响。<br>STL里的stack<strong>没有</strong><code>clear</code>方法，，所以清空方法如下：<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+ st<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+或者把stack声明在循环体内部。</li>
+</ol>
+<h3 id="计算机中的栈"><a href="#计算机中的栈" class="headerlink" title="计算机中的栈"></a>计算机中的栈</h3><p>C编译器处理函数的时候，就是使用栈来保存数据的。当函数调用另一个函数时，C编译器将主调函数的所有实参和放回地址压入栈当中，栈指针将移动到合适的位置来容纳这些数据。<br>当进行被调函数时，编译器将栈中实参数据弹出，赋值给函数的形参。在被调用函数执行期间，还可以用栈来保存函数执行过程的局部变量。当被调用函数准备返回时，系统将弹出栈中所有当前函数压如栈中的值，这时，栈指针将移动到被调用函数刚开始执行时的位置。接着被调用函数返回，系统从栈中弹出返回地址，主函数就可以继续执行了。<a href="周颖.程序员的趣味数学修炼[M].北京:清华大学出版社，2014：71-72.">^2</a><br><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-23%20%E4%B8%8B%E5%8D%8811.09.03.png" alt="函数调用"><br>左图：函数1调用函数2<br>右图：函数2调用结束返回函数1</p>
+<h4 id="递归与堆栈"><a href="#递归与堆栈" class="headerlink" title="递归与堆栈"></a>递归与堆栈</h4><p>递归算法（自身不断调用自身）的程序代码更简洁清晰，可读性更好。但缺点是每次递归调用，需要将返回地址、参数等数据压入堆栈，也就是说，递归内部实现需要消耗额外的空间和时间。如果递归的层次太深，就可能导致堆栈溢出(<code>stack overflow</code>)(俗称的<code>爆栈</code>)，从而使程序执行出错。<br>在OJ上通常的反馈就是<br><code>RE：Runtime Error</code><br>或者<br><code>MLE: Memory Limit Exceeded</code></p>
+<hr>
+<h2 id="queue队列"><a href="#queue队列" class="headerlink" title="queue队列"></a>queue队列</h2><p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-24%20%E4%B8%8A%E5%8D%881.14.12.png" alt="队列数据结构"><br>解密规则：首先将第<code>1</code>个数删除,紧接着将第<code>2</code>个数放到这串数的末尾,再将第<code>3</code>个数删除并将第<code>4</code>个数放到这串数的末尾,再将第<code>5</code>个数删除…… 直到剩下最后一个数,将最后一个数也删除。按照刚才删除的顺序,把这些删除的数连在一起就是小哈的QQ啦。</p>
+<p>队列的特点：<code>FIFO(First In First Out)</code>先进先出。</p>
+<h3 id="生活中的例子-1"><a href="#生活中的例子-1" class="headerlink" title="生活中的例子"></a>生活中的例子</h3><p>普通队列</p>
+<ol>
+<li>饭堂排队，先来的先打饭。</li>
+<li>在独木桥上单方向行走，先上桥的先下桥。</li>
+</ol>
+<p>优先队列</p>
+<ol>
+<li>银行VIP来了优先服务。</li>
+<li>军训期间，教官喊队伍里最高的同学出列。该同学出列后，教官喊剩下的同学里最高的同学出列，以此循环。</li>
+</ol>
+<h3 id="最基本的操作-1"><a href="#最基本的操作-1" class="headerlink" title="最基本的操作"></a>最基本的操作</h3><p><code>PUSH_BACK</code>:入队<br><code>POP</code>:出队<br><code>Front</code>:取队头元素</p>
+<h3 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h3><ol>
+<li>数组模拟</li>
+</ol>
+<p><img src="https://ome6qqcd0.qnssl.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-07-25%20%E4%B8%8B%E5%8D%888.54.29.png" alt="数组模拟队列"></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//入队</span>
+queue<span class="token punctuation">[</span>tail<span class="token punctuation">]</span><span class="token operator">=</span>data<span class="token punctuation">;</span>
+tail<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//出队</span>
+head<span class="token operator">++</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code>//判空
+head==tail
+</code></pre><ol>
+<li>STL中的queue容器</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>成员函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty</td>
+<td>Test whether container is empty (public member function )</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Return size (public member function )</td>
+</tr>
+<tr>
+<td>front</td>
+<td>Access next element (public member function )</td>
+</tr>
+<tr>
+<td>back</td>
+<td>Access last element (public member function )</td>
+</tr>
+<tr>
+<td>push</td>
+<td>Insert element (public member function )</td>
+</tr>
+<tr>
+<td>emplace</td>
+<td>Construct and insert element (public member function )</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>Remove next element (public member function )</td>
+</tr>
+<tr>
+<td>swap</td>
+<td>Swap contents (public member function )</td>
+</tr>
+</tbody>
+</table>
+<p>详细用法参考：<a href="http://www.cplusplus.com/reference/queue/queue/?kw=queue" target="_blank" rel="external">cplusplus queue</a></p>
+<h3 id="举个例子-1"><a href="#举个例子-1" class="headerlink" title="举个例子"></a>举个例子</h3><p>好像没有裸队列的题目，所以这里给一个基本的操作代码</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> q<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"size:%d\n"</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span>q<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="更多练习-1"><a href="#更多练习-1" class="headerlink" title="更多练习"></a>更多练习</h3><p>基础队列：<br> bfs相关题目。<br><a href="http://acm.hust.edu.cn/vjudge/problem/20620" target="_blank" rel="external">HDU 1728 逃离迷宫</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/15204" target="_blank" rel="external">POJ 3278 Catch That Cow</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/18463" target="_blank" rel="external">HDU 1495 非常可乐</a></p>
+<p>优先队列：<br><a href="http://acm.hust.edu.cn/vjudge/problem/23010" target="_blank" rel="external">HDU 4006 The kth great number</a><br><a href="http://acm.hust.edu.cn/vjudge/problem/25192" target="_blank" rel="external">HDU 1896 看病要排队</a></p>
+<h3 id="一些注意点-1"><a href="#一些注意点-1" class="headerlink" title="一些注意点"></a>一些注意点</h3><ol>
+<li>上面用数组模拟的队列，由于head和rail一直向后移动，所以占用的空间是非常大的。因此就有了<code>循环队列</code>。</li>
+<li>优先队列也常用语贪心算法当中。优先队列的优先级可以通过<code>重载结构体的&lt;运算符</code>，<code>functional头文件中的greater/less</code>，<code>自定义比较结构</code>来实现。<a href="http://www.cnblogs.com/summerRQ/articles/2470130.html" target="_blank" rel="external">这里</a>有一篇博文讲解。</li>
+</ol>
+<hr>
+<p>参考资料</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 算法笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ACM </tag>
+            
+            <tag> queue </tag>
+            
+            <tag> stack </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[用python爬取Vjudge上的用户提交记录]]></title>
+      <url>https://blog.qiujinfeng.com/2016/05/27/Virtual-Judge%E7%88%AC%E8%99%AB%E5%AE%9D%E5%AE%9D%E8%AF%9E%E7%94%9F%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>本文介绍了如何使用python来爬取Vjudge上面的用户数据，迟一点会根据爬取下来的数据进行数据分析和挖掘。由于Vjudge之前更改了版本并且提供了api，所以这里内容需要更新一下。目前还没写完。<br><a id="more"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个重度拖延者晚期无药可救患者，从大一下学期开始就希望学习Python来做个爬虫玩玩，然而现在大二下都快要结束了- -。。<strong>爬虫</strong> 是个什么东西，简单来说，你可以把爬虫看成是一个网上的蜘蛛，它可以从互联网上抓取一些你需要的信息下来。爬虫可以做些什么呢？以搜索引擎为例，它就是爬虫把各个网站爬取并收录到数据库当中。当然，这是不足以打动我的。我之所以对爬虫这么感兴趣，主要还是看到了。<br>例如说：</p>
+<ul>
+<li>看到知乎上某个钓鱼问题，抓取一波妹纸图片(*/ω＼*)</li>
+<li>自制一个每次都会出现在云舒大大答案下的贾萌萌AI</li>
+<li>抓取一下人才市场网站的数据，分析一下热门职业</li>
+<li>…</li>
+</ul>
+<p>当然这篇博文还是为了记录一下我的第一个小爬虫。写这个的初衷是目前在学校集训队里，Mz队长他们每次要统计题数的时候都挺麻烦的。于是就寻思着能不能写一个爬虫，爬去一下各个队员的日常刷题情况，减轻一下他的负担。另一方面，让自己可以看看聚聚们每天都在做些什么题，给自己一个压力提醒自己不要自以为是，懈怠训练。我记得有次有个人在群里说自己觉得的智商是不是不适合搞ACM，于是Taosama就只是回了一句：<code>“先把你的题数刷到和我一样多，再来谈智商”</code>。的确也是啊，以目前努力程度之低，根本不足以到谈天赋的资格。加上最近又有JAVA上机课的大作业，于是乎，这个爬虫宝宝就出生啦~</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> ACM </tag>
+            
+            <tag> Virtual judge </tag>
+            
+            <tag> 交题记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[从Windows转向Ubuntu]]></title>
+      <url>https://blog.qiujinfeng.com/2016/03/01/%E4%BB%8EWindows%E8%BD%AC%E5%90%91Ubuntu/</url>
+      <content type="html"><![CDATA[<p>本文介绍了之前从使用Windows开发到转向使用Ubuntu开发的理由，以为Ubuntu下的一些配置工作。当作个人的笔记使用。<br><a id="more"></a></p>
+<h2 id="为什么使用Ubuntu"><a href="#为什么使用Ubuntu" class="headerlink" title="为什么使用Ubuntu"></a>为什么使用Ubuntu</h2><p>最近在学python,之前用的windows,安装第三方库的时候总会遇到各种各样奇奇怪怪的bug,而且也挺麻烦。Ubuntu下面自带python，gnu等环境。而且要安装<code>git</code>,<code>nodejs</code>以及其他各种软件都可以通过<code>Terminal</code>优雅地完成，而且所需要的依赖包也可以自动安装地多。刚开始看到<a href="https://github.com/Jeffrey95/StarterLearningPython" target="_blank" rel="external">《零基础学python（第二版）》</a>上面说：</p>
+<blockquote>
+<p>windows操作系统的用户，特别提醒用windows的用户，使用windows不是你的错，错就错在你只会使用鼠标点来点去，而不想也不会使用命令，更不想也不会使用linux的命令，还梦想成为优秀程序员。</p>
+</blockquote>
+<p>还不是特别明白。但是通过这些天的折腾和学习，发现用Linux下使用命令真的能大大提升工作效率。或许也只有在亲手实践之后才能得到这种体会吧！<br>之前也是折腾过黑苹果，<code>OS X</code>确实是我很喜欢的一款系统，无奈穷学生暂时还买不起macbook，在非macbook上安装<code>OS X</code>也并非不可以，只是要完善确实要花很多时间。感觉没太大必要，因为投入产出性价比不高。组装机上面还去折腾还可以，笔记本上面要十分接近原生macbook的使用体验还是有一定的距离。于是考虑了一个折中的方案：使用Linux。</p>
+<p>考虑到以后会使用阿里云等云服务器，所以学习使用Linux以及熟悉命令行操作就非常有必要了。</p>
+<p>这里我选择的是<code>Ubuntu</code> 。至于为什么。仅仅是因为它颜值高啊哈哈哈。</p>
+<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p><a href="http://www.ubuntu.org.cn/index_kylin" target="_blank" rel="external">官网地址</a><br>安装教程网上有很多这里不再赘述</p>
+<h2 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h2><p>对于程序员来说，不能使用google简直会爆炸。一个<code>chrome</code>的重度使用者表示，chrome在登陆了google账号之后会自动同步书签，插件，历史记录等等都是非常方便的。要下载chrome和登陆google账号，首先要能科学上网。对于平时我都是使用的<code>shadowsocks</code>。但是<code>shadowsocks</code>要配合浏览器以及插件才能使用，所以我们暂时先用该<code>hosts</code>的方法。<br>Linux下面hosts保存在<code>/etc/hosts</code><br>你可以使用以来命令来打开：</p>
+<pre><code>sudo gedit /etc/hosts
+</code></pre><p>最新的hosts文件你可以在：<a href="http://laod.cn/hosts/2016-google-hosts.html" target="_blank" rel="external">2016 Google hosts 持续更新</a>中找到。<br>把在上面这个链接（或其他网站）里找到的最新hosts内容复制进你自己的hosts中，保存即可。现在试试打开google.com.hk看看，应该是可以上去的了。</p>
+<p>然后下载chrome什么的，就看你自己啦。</p>
+<p>Linux我使用的GUI shdowsocks客户端是：<a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="external">shadowsocks-qt5</a><br>shadowsocks网上有免费账号，但是要经常找比较麻烦。、<br>我是买的，体验还不错：<a href="https://portal.shadowsocks.com/aff.php?aff=6018" target="_blank" rel="external">shadowsocks账号购买</a></p>
+<h2 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h2><p>我自己使用的<a href="http://pinyin.sogou.com/linux/" target="_blank" rel="external">搜狗输入法</a>,<code>Ubuntu 14.04+</code>直接下载安装就可以了。记得装好之后要注销一下。</p>
+<h2 id="Sublime-text"><a href="#Sublime-text" class="headerlink" title="Sublime text"></a>Sublime text</h2><p>这是我自己经常使用的一款编辑器。下载安装之后在<code>Terminal</code>中输入<code>subl</code>就可以打开了。<br>快速打开Terminal命令：<code>ctrl+alt+T</code><br>或者也可以：<code>superkey+a</code>然后输入应用名字来快速打开。<br>superkey：windows就是<code>windows</code>，os x就是<code>command</code><br>安装插件什么的不再赘述。</p>
+<p>Ubuntu下面配置Sublime Text的C++编译环境和python编译环境参考我的另外两篇博客。</p>
+<p><a href="https://github.com/lyfeyaj/sublime-text-imfix" target="_blank" rel="external">Sublime Text 2/3 输入法修复[Ubuntu(Debian)]</a></p>
+<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><pre><code>$ git clone https://github.com/creationix/nvm.git ~/.nvm
+$ source ~/.nvm/nvm.sh
+</code></pre><p>这样子nvm安装在<code>/home/yourUsrName</code>下面。<br>source命令：</p>
+<pre><code>source FileName
+ 作用:在当前bash环境下读取并执行FileName中的命令。
+</code></pre><p>如果不执行第二次命令的话会提示找不到nvm这个命令。<br>如果不想每次都输入<code>source ~/.nvm/nvm.sh</code>，可以执行：</p>
+<pre><code>$ gedit ~/.bashrc
+</code></pre><p>并在最后面追加一条：</p>
+<pre><code>$ source ~/.nvm/nvm.sh #具体根据你nvm.sh所在路径来修改
+</code></pre><h2 id="通过nvm安装nodejs"><a href="#通过nvm安装nodejs" class="headerlink" title="通过nvm安装nodejs"></a>通过nvm安装nodejs</h2><p>查看各版本nodejs：</p>
+<pre><code>nvm ls-remote
+</code></pre><p>目前我这里最新的是<code>v5.9.0</code></p>
+<p>安装：</p>
+<pre><code>nvm install 5.9.0
+</code></pre><p>这样就可以安装v0.12的最新版本了。<br><code>npm</code>在装nodejs时可以自动装好。</p>
+<p>更多可以参考这篇博客：<a href="http://fengmk2.com/blog/2014/03/node-env-and-faster-npm.html" target="_blank" rel="external">快速搭建 Node.js / io.js 开发环境以及加速 npm</a></p>
+<h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><p>npm在国内的下载速度略慢，可以使用<a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝 NPM 镜像</a>加速</p>
+<p>安装</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> -g cnpm --registry<span class="token operator">=</span>https://registry.npm.taobao.org
+</code></pre>
+<p>其他命令和<code>npm</code>一样，只是把npm该成cnpm。</p>
+<h2 id="更多的继续更新中…"><a href="#更多的继续更新中…" class="headerlink" title="更多的继续更新中…"></a>更多的继续更新中…</h2>]]></content>
+      
+        <categories>
+            
+            <category> 个人心得 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[将sublime打造为轻量级的C++ IDE（详细）]]></title>
+      <url>https://blog.qiujinfeng.com/2016/02/21/%E5%B0%86sublime%E6%89%93%E9%80%A0%E4%B8%BA%E8%BD%BB%E9%87%8F%E7%BA%A7%E7%9A%84C++%20IDE%EF%BC%88%E8%AF%A6%E7%BB%86%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>本文较为详细地介绍了在Windows和Ubuntu系统下，如何配置Sublime Text的C++编译运行环境。目前实现了了可以在Sublime Text按下快捷键后，调出CMD或者终端来运行C/C++程序，从而解决了Sublime Text无法接收输入的问题。<br>另外本文也介绍了一些Sublime Text的使用和用户配置备份的方法，具有一定的参考作用。<br><a id="more"></a></p>
+<h3 id="使用背景"><a href="#使用背景" class="headerlink" title="使用背景"></a>使用背景</h3><p>现在搞ACM-ICPC的比赛，经常写算法程序。说一说使用过的IDE吧：</p>
+<ul>
+<li><p>Visual Studio 2013<br>配合<code>Visual Assist</code>插件真的非常好用，没有之一！无论是写程序或者调试代码都能非常优雅地完成！当然我只用到了这个它的一小部分，不过我感觉这种企业级别的IDE绝对是写工程的不二选择。可惜在比赛时并不会提供这么优秀的IDE，而且像<code>Visual Studio</code>这种IDE比较吃机器配置。以前没有加固态硬盘时，打开工程的速度简直是要令人发狂的。</p>
+</li>
+<li><p>CodeBlock<br>比赛举办方通常提供的IDE，一个开源的轻量级的IDE。体积不大，功能也比较齐全，调试程序没有Visual Studio优雅，能满足写小型程序的要求。应对写比赛程序，上学时写的作业程序也是绰绰有余了。至于缺点，个人觉得是：界面不美观，虽然可以自己调字体，颜色等等，但是整个IDE给我的感觉就是不好看。另外在官网下载的速度非常非常慢，挂上ss下载也还是经常失败，我都是用网盘离线下载之后再从网盘上下载下来的。</p>
+</li>
+<li><p>Sublime<br>这个说不上是一款IDE，Sublime只是一个文本编辑器。但正如其<a href="http://www.sublimetext.com/" target="_blank" rel="external">官网</a>所说的：</p>
+<blockquote>
+<p>Sublime Text is a sophisticated text editor for code, markup and prose.<br>You’ll love the slick user interface, extraordinary features and amazing performance.</p>
+</blockquote>
+<p>作为一个颜控，我一下子就被它的外观吸引到啦。其实Sublime本身的功能就挺强大的，加上丰富的插件，足以配置出一款适合自己的轻量级IDE。本文中使用的Sublime版本是<code>Sublime Text Build 3103</code>，现在开始我们的搭建之旅。</p>
+</li>
+</ul>
+<!-- more -->
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p><a href="http://www.sublimetext.com/" title="直接在首页有下载链接" target="_blank" rel="external">官网下载</a>。Sublime Text是需要激活的，当然你不激活也可以正常使用，只是它会时不时提醒你而已。有能力的话，还是可以支持一下这么优秀的一款软件~</p>
+<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><ol>
+<li><p>安装<code>Package Control</code>:<br>在Sublime Text中使用快捷键<code>ctrl+` </code>调出<code>console</code>或者点击：<code>View</code>-&gt;<code>Show Console</code>.然后把以下代码(适用于Sublime Text 3)复制进去：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span>os<span class="token punctuation">,</span>hashlib<span class="token punctuation">;</span> h <span class="token operator">=</span> <span class="token string">'2915d1851351e5ee549c20394736b442'</span> <span class="token operator">+</span> <span class="token string">'8bc59f460fa1548d1514676163dafc88'</span><span class="token punctuation">;</span> pf <span class="token operator">=</span> <span class="token string">'Package Control.sublime-package'</span><span class="token punctuation">;</span> ipp <span class="token operator">=</span> sublime<span class="token punctuation">.</span>installed_packages_path<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>install_opener<span class="token punctuation">(</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> by <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span> <span class="token string">'http://packagecontrol.io/'</span> <span class="token operator">+</span> pf<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'%20'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> dh <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>by<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Error validating download (got %s instead of %s), please try manual install'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>dh<span class="token punctuation">,</span> h<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> dh <span class="token operator">!=</span> h <span class="token keyword">else</span> open<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span> ipp<span class="token punctuation">,</span> pf<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'wb'</span> <span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>by<span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>重启Sublime Text</p>
+</li>
+<li>在<code>Perferences-&gt;package settings</code>中看到<code>package control</code>这一项，则安装成功。</li>
+<li><code>Ctrl+Shift+p</code>调出命令面板，选择<code>Install Package</code>并回车，在弹出的界面输入你想要安装的插件名字，回车安装即可。</li>
+<li><p>这里给出一些我用到的插件：</p>
+<ul>
+<li><code>ConvertToUTF8</code>: 解决中文在sublime中乱码的问题</li>
+<li><code>SyncedSideBarBg</code>: 解决sidebar颜色和sublime背景不统一的问题</li>
+<li><code>SideBarEnhancements</code>: 侧边栏增强</li>
+<li><code>SublimeAStyleFormatter</code>：c/c++/c#/java代码格式化工具</li>
+</ul>
+</li>
+<li><p>备注</p>
+<ul>
+<li>打开<code>sidebar</code>的方法：快捷键<code>Ctrl+k,Ctrl+b</code>或者<code>View</code>-&gt;<code>SideBar</code>-&gt;<code>Show SideBar</code></li>
+<li>要使用<code>SideBarEnhancements</code>需要在<code>File</code>-&gt;<code>Open Folder</code>中打开一个文件夹，才能在sidebar中进行新建，删除等操作。</li>
+<li>插件的设置可以在：<code>Perferences-&gt;package settings</code>进行如用户配置，快捷键配置等设置</li>
+</ul>
+</li>
+</ol>
+<h3 id="配置C-编译环境"><a href="#配置C-编译环境" class="headerlink" title="配置C++编译环境"></a>配置C++编译环境</h3><ol>
+<li><p>下载编译器（已有的可以跳过此步)：<code>MinGW</code>或者<code>tdm gcc</code>二选一即可。我这里使用的的<code>tdm gcc</code>，<a href="#jump">原因</a>之后会说。<br>推荐用<code>tdm gcc</code>!<br>推荐用<code>tdm gcc</code>!<br>推荐用<code>tdm gcc</code>!<br>重要的事说三次！！<br>安装地址：<br>minGW: <a href="http://sourceforge.net/projects/mingw/" target="_blank" rel="external">http://sourceforge.net/projects/mingw/</a><br>tdm-gcc: <a href="https://sourceforge.net/projects/tdm-gcc/?source=directory" target="_blank" rel="external">https://sourceforge.net/projects/tdm-gcc/?source=directory</a><br>鉴于外国网站网速感人，下面丢两个我离线下载到百度网盘的版本：<br><a href="http://pan.baidu.com/s/1i4mC841" target="_blank" rel="external">minGW</a><br><a href="http://pan.baidu.com/s/1c1qQ0dq" target="_blank" rel="external">tdm gcc</a><br>最新版本请以第1,2条下载地址的为准。</p>
+</li>
+<li><p><code>tdm gcc</code>的安装过程非常简单，下载下来直接next,next,next就可以了。<br><code>MinGW</code>的安装过程稍稍麻烦一些。把之前的minGW安装器安装完之后打开，如图勾选<br><img src="https://ome6qqcd0.qnssl.com/%E5%8B%BE%E9%80%89.png" alt="勾选">，然后在<code>Installation</code>-&gt;<code>Apply Changes</code>。</p>
+</li>
+<li><p>设置环境变量（win10环境）：<br><code>此电脑</code>-&gt;<code>属性</code>-&gt;<code>高级系统设置</code>-&gt;<code>环境变量</code>-&gt;<code>系统变量中的path</code>-&gt;添加你的编译器路径下的<code>bin目录</code>：<br>如我的minGW安装路径是：<code>C:\MinGW</code>,则添加<code>C:\MinGW\bin</code><br>我的<code>tdm gcc</code>安装路径是: <code>C:\TDM-GCC-64</code>，则添加<code>C:\TDM-GCC-64\bin</code>。<br>按你安装的编译器是什么来选择，这里注意查看这个bin目录下是否有<code>g++.exe,gcc.exe</code>等，有则是正常的路径。</p>
+</li>
+<li><p>测试g++/gcc环境：<br>在cmd中输入<code>g++ -v</code><br><img src="https://ome6qqcd0.qnssl.com/g%2B%2B.png" alt="g++/gcc环境"></p>
+</li>
+<li><p>在Sublime Text中编写cpp程序测试：<br>在Sublime Text新建文件<code>test.cpp</code>并按<code>ctrl+b</code>编译输出<br><img src="https://ome6qqcd0.qnssl.com/helloworld.png" alt="cpp测试"><br>测试成功。<br>注：你可以在<code>tool</code>-&gt;<code>build-system</code>中选择编译系统。</p>
+</li>
+</ol>
+<h3 id="Sublime-build-System配置"><a href="#Sublime-build-System配置" class="headerlink" title="Sublime build System配置"></a>Sublime build System配置</h3><p>很快你会发现，按上面的方法写出来的程序只能输出，不能输入。不像我们在IDE上面编写的程序那样，执行的时候会弹出CMD来接受输入，那么这时候我们需要自定义一个<code>Sublime build System</code></p>
+<ol>
+<li><p>首先我花一点点时间来了解一些基础知识：</p>
+<ul>
+<li><p><code>sublime build system</code>目录:</p>
+<pre class=" language-xml"><code class="language-xml">{
+"folders":
+[
+   {
+       "follow_symlinks": true,
+       "path": "."
+   }
+],
+"build_systems":
+[
+   {
+       // 在选定 Tools | Build System | Automatic 时使用。Sublime Text使用这个 选择器自动为活动试图选择构建系统
+       "selector": "source.python",
+       // 在运行``cmd``前会切换到该目录。运行结束后会切换到原来的目录。
+       "working_dir":"D:/Developer/pyenv/python27",
+       // 输出``cmd``的编码。必须是合法的Python编码，缺省为``UTF-8``
+       "encoding":"UTF-8",
+       // 在环境变量被传递给``cmd``前，将他们封装成词典。
+       "env": {"PYTHONPATH":"."},
+       // 如果该选项为``true`` ，``cmd``则可以通过shell运行
+       "shell":false,
+       // 该选项可以在调用``cmd``前替换当前进程的’ PATH 。原来的’ PATH 将在运行后恢复。使用这个选项可以在不修改系统设置的前提下将目录添加到’ PATH 中
+       "path":"./Scripts;%PATH%",
+       // For Mac OS X and Linux and Unix
+       //"path":"/Users/user/work/myvirtualenv/bin:$PATH",
+       "name": "Run virtualenv python",
+       // 包括命令及其参数数组。如果不指定绝对路径，外部程序会在你系统的:const:PATH 环境变量中搜索。
+       "cmd": ["python.exe", "-u", "$file"],
+       // ``file_regex``选项用Perl的正则表达式来捕获构建系统的错误输出，主要包括四部分内容，分别是 file name*, line number, column number and error message. Sublime Text 在匹配模式中使用分组的方式捕获信息。file name 和 *line number*域是必须的
+       "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)"
+       // variants 用来替代主构建系统的备选。如果构建系统的选择器与激活的文件匹配，变量的``名称``则 会出现在 Command Palette 中。
+       // line_regex: 当``file_regex``与该行不匹配，如果``line_regex``存在，并且确实与当前行匹配， 则遍历整个缓冲区，直到与``file regex``匹配的行出现，并用这两个匹配决定最终要跳转的文件 或行
+
+       // $file_path    当前文件所在路径, 比如 C:\Files.
+       // $file   当前文件的完整路径, 比如 C:\Files\Chapter1.txt.
+       // $file_name  当前文件的文件名, 比如 Chapter1.txt.
+       // $file_extension 当前文件的扩展名, 比如 txt.
+       // $file_base_name 当前文件仅包含文件名的部分, 比如 Document.
+       // $packages   Packages 文件夹的完整路径.
+       // $project    当前项目文件的完整路径.
+       // $project_path   当前项目文件的路径.
+       // $project_name   当前项目文件的名称.
+       // $project_extension  当前项目文件的扩展部分.
+       // $project_base_name  当前项目仅包括名的部分.
+   }
+]
+}
+</code></pre>
+</li>
+<li><p>g++编译命令：<br>以<code>Test.cpp</code>为例：<br>命令： <code>g++ Test.cpp</code><br>功能：生成默认为a.exe的文件，这个过程包含了编译和链接。<br>再说下-o命令，-o命令表示输出的意思，gcc/g++命令是非常灵活的，你不指定输出的文件名的时候默认生成的是.exe文件。<br>你要输出Test.exe的话可以用：g++ -o Test.exe Test.cpp。-o命令是输出的意思，这样就输出了<code>Test.exe</code>。<br>命令:<code>-Wall</code>：输出所有警告信息</p>
+</li>
+<li><p>cmd命令<br><code>/c</code>:当执行完相应的命令(在命令提示符中)后自动退出命令提示符<br><code>pause</code>:暂停命令,执行时会在命令行窗口显示“请按任意键继续. . .”并等待你按键<br>当路径中的文件名/文件夹名字<strong>含有空格</strong>时，需要用<code>&quot;&quot;</code>将这个文件名/文件夹名字括起来。</p>
+</li>
+</ul>
+</li>
+<li><p>开始配置：<br><code>Sublime Text 3</code>-&gt;<code>Tools</code>-&gt;<code>Build System</code>-&gt;<code>New Build System</code>,输入一下内容：</p>
+<pre class=" language-xml"><code class="language-xml">{
+ "encoding": "utf-8",
+ "working_dir": "$file_path",
+ "shell_cmd": "g++ -Wall \"${file}\" -o \"${file_path}/${file_base_name}\"",
+ "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+ "selector": "source.c++",
+
+ "variants":
+ [
+     {   
+     "name": "Run",
+         "shell_cmd": "g++ -Wall \"${file}\" -o \"${file_base_name}\" &amp;&amp; start cmd /c \"\"${file_path}/${file_base_name}\" &amp; pause\""
+     }
+ ]
+</code></pre>
+<p>解释一下</p>
+<pre><code>&quot;shell_cmd&quot;: &quot;g++ -Wall \&quot;${file}\&quot; -o \&quot;${file_base_name}\&quot; &amp;&amp; start cmd /c \&quot;\&quot;${file_path}/${file_base_name}\&quot; &amp; pause\&quot;
+</code></pre><p>以<code>d:test.cpp</code>为例，这里相当于在cmd中执行了<br><code>g++ -Wall &quot;D:\blank and blank\test and test.cpp&quot; -o &quot;D:\blank and blank/test and test&quot;</code>，这句话的意思就是：<strong>用g++编译器编译D:\blank and blank\test and test.cpp文件，并在译D:\blank and blank\目录下生成test and test文件</strong>。之前都是直接从网上复制下来别人写的，结果都没有解决<strong>文件名和文件路径中</strong>包含空格的问题。我这里使用了<strong>转义字符\和”</strong>来把文件名和文件路径用双引号括起来，解决了空格的问题。</p>
+<pre><code>start cmd /c \&quot;\&quot;${file_path}/${file_base_name}\&quot; &amp; pause\&quot;
+</code></pre><p>类似地，这句话的意思就是：<strong>启动cmd并输入命令”D:\blank and blank/test and test” &amp; pause</strong>,运行结果如图：<br><img src="https://ome6qqcd0.qnssl.com/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="运行结果"></p>
+<p>你可以在Sublime Text中的console中看到你在<code>ctrl+b</code>编译之后的执行的命令<br><img src="https://ome6qqcd0.qnssl.com/st%20console.png" alt="st console"></p>
+</li>
+<li><p>保存配置文件：<br>按<code>ctrl+s</code>保存配置文件，文件名<code>xx.sublime-bulid</code>,这里后缀名一定要是<code>sublime-bulid</code>,然后你就可以在<code>Preference</code>-&gt;<code>Browse Package</code>-&gt;<code>user</code>文件夹中找到你保存的<code>xx.sublime-bulid</code>文件了。接下来在<code>tool</code>-&gt;<code>build-system</code>中选择xx（你刚刚保存的文件的文件名）。然后你就可以直接在Sublime Text中按<code>ctrl+b</code>或者<code>ctrl+shift+b</code>来编译运行了，程序都是以cmd的形式运行的。</p>
+</li>
+</ol>
+<h3 id="开启C-11"><a href="#开启C-11" class="headerlink" title="开启C++11"></a>开启C++11</h3><p>开始c++11只需要在刚刚的配置文件中加入<code>-std = c++11</code>，完整的配置如下:</p>
+<pre class=" language-xml"><code class="language-xml">  {
+    "encoding": "utf-8",
+    "working_dir": "$file_path",
+    "shell_cmd": "g++ -Wall -std=c++11 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "selector": "source.c++",
+
+    "variants":
+    [
+        {   
+        "name": "Run",
+            "shell_cmd": "g++ -Wall -std=c++11 \"${file}\" -o \"${file_base_name}\" &amp;&amp; start cmd /c \"\"${file_path}/${file_base_name}\" &amp; pause\""
+        }
+    ]
+}
+</code></pre>
+<h3 id="Ubuntu版本"><a href="#Ubuntu版本" class="headerlink" title="Ubuntu版本"></a>Ubuntu版本</h3><pre class=" language-xml"><code class="language-xml">{
+    "shell_cmd": "g++ -Wall -std=c++11 '${file}' -o '${file_path}/${file_base_name}'",
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+
+    "variants":
+    [
+        {
+            "name": "Build &amp; Run",
+            "shell_cmd": "gnome-terminal -e \"bash -c 'g++ -Wall -std=c++11 '${file}' -o '${file_path}/${file_base_name}' ; '${file_path}/${file_base_name}' ; echo ;echo Press any key to continue; read -sn 1;exit;exec bash;'\""
+        }
+    ]
+    //未解决路径和文件名带空格的问题。Linux里启动终端并且执行完程序后暂停有点难搞，各种引号的匹配非常得蛋疼。暂时先用着-来链接吧！
+}
+</code></pre>
+<p>但是这里使用MinGW可能会遇到一个<span id="jump">BUG</span>，就是<code>%lf</code>无法正常输出（我不知道你们是不是这样，或许我脸黑）。<br>我的g++版本：<code>4.8.1</code><br><img src="https://ome6qqcd0.qnssl.com/text.png" alt="源码"></p>
+<p><img src="https://ome6qqcd0.qnssl.com/no11.png" alt="没加-std=c++11"></p>
+<p><img src="https://ome6qqcd0.qnssl.com/11.png" alt="加了-std=c++11"></p>
+<p>解决方法：改用<code>tdm-gcc</code></p>
+<h3 id="Snippets"><a href="#Snippets" class="headerlink" title="Snippets"></a>Snippets</h3><p>通过上面的设置，我们就可以愉快地用Sublime Text来写代码啦！这里只是介绍一点很方便的东西。当我们在平时在程序的时候可以会输入很多头文件，而每次都手动输入显示是不明智的做法，而每次都手动复制粘贴显示也很麻烦，Sublime Text就为我们提拱了一个很方便的工具–<code>Snaippets</code>。<br>先来看看效果<br><img src="https://ome6qqcd0.qnssl.com/input.gif" alt="input"><br>这样我们就可以很方便地需要我们厂用到的头文件了：</p>
+<p>设置：<br><code>Tools</code>-<code>New Snippet</code></p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>snippet</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>content</span><span class="token punctuation">></span></span><span class="token cdata">&lt;![CDATA[
+Hello, ${1:this} is a ${2:snippet}.
+]]></span>//在这里输入内容,${1:}表示按完快键键后按光标所在位置
+${2:}表示，按完快捷键后，按第一下tab光标转移到的位置。
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>content</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;tabTrigger>hello&lt;/tabTrigger> --></span>//快捷键开关，你要把注释取消掉，像
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tabTrigger</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tabTrigger</span><span class="token punctuation">></span></span>//我的图中就是把hello改成了'#init'
+    <span class="token comment" spellcheck="true">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;scope>source.python&lt;/scope> --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>snippet</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>我图中的配置是：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>snippet</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>content</span><span class="token punctuation">></span></span><span class="token cdata">&lt;![CDATA[
+#include &lt;cstdio>
+#include &lt;cstdlib>
+#include &lt;string.h>
+#include &lt;string>
+#include &lt;math.h>
+#include &lt;algorithm>
+#include &lt;iostream>
+#include &lt;queue>
+#include &lt;stack>
+#include &lt;map>
+#include &lt;set>
+typedef long long ll;
+using namespace std;
+
+int main()
+{
+    ${1}
+}
+]]></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>content</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tabTrigger</span><span class="token punctuation">></span></span>#init<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tabTrigger</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;scope>source.python&lt;/scope> --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>snippet</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>同样保存配置，文件名格式：<code>xx.init.sublime-snippet</code>。保存后也是可以在<code>Preference</code>-&gt;<code>Browse Package</code>-&gt;<code>user</code>文件夹中找到。</p>
+<p>Sublime Text自带的snippet可以在<code>sublime text安装目录</code>-&gt;<code>Packages</code>中找到。<br>以<code>C++</code>为例：<br><code>C:\Program Files\Sublime Text 3\Packages\c++.sublime-package</code>。<br>把后缀名改成：<code>c++.zip</code>即可用压缩文件打开。里面就有Sublime自带的<code>snippet</code>，用sublime text打开修改即可。修改完毕之后记得把<code>.zip</code>改回<code>.sublime-package</code>。</p>
+<h3 id="待完善的地方"><a href="#待完善的地方" class="headerlink" title="待完善的地方"></a>待完善的地方</h3><ol>
+<li>不能像IDE那样提示如<code>stl</code>中的自带函数。Sublime Text 2中可以通过安装一个<code>SublimeClang</code>的插件来完成，但是原作业已经停止更新了，所以在Sublime Text 3的Package control中并不能直接找到这个插件。有兴趣的可以自行搜索一下ST3中怎么安装这个插件，我之前折腾过可是还是有BUG，于是还没有完成。不过也还好，靠自己记住那么函数方法。</li>
+<li>调试过程略蛋疼。由于不能像IDE那样逐行调试，所以现在都是在代码中的不同地方插入tag手动调试。我也不知道这对提升代码力是好还是坏了。看来有必要学一波gdb调试？</li>
+</ol>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>由于真的而很喜欢sublime text的节目所以一直都放不下这个哈哈哈。前前后后看了不少的博客，百度google了很多次。尝试过照搬别人的配置，结果各种BUG，还是要看自身的情况来定制。这次学到了关于<code>g++</code>编译器编译命令已经<code>cmd</code>命令，还有一点点的正则表达式。仅以此博文与大家分享。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> sublime </tag>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hexo博客搭建过程]]></title>
+      <url>https://blog.qiujinfeng.com/2016/01/21/first%20blog/</url>
+      <content type="html"><![CDATA[<h2 id="2016-2-9"><a href="#2016-2-9" class="headerlink" title="2016.2.9"></a>2016.2.9</h2><ul>
+<li>取消toc</li>
+<li>撤销左侧栏宽度更改</li>
+<li>修改回到顶部样式</li>
+</ul>
+<a id="more"></a>
+<h3 id="取消toc"><a href="#取消toc" class="headerlink" title="取消toc"></a>取消toc</h3><p>之前那个toc做得不满意，打算模仿next主题里的sidebar里的toc样式。那个做得不错。</p>
+<h3 id="取消左侧栏宽度"><a href="#取消左侧栏宽度" class="headerlink" title="取消左侧栏宽度"></a>取消左侧栏宽度</h3><p>按之前的commit记录修改之后left-col里的元素不能居中对齐，强迫症表示不能忍受。</p>
+<h3 id="修改回到顶部样式"><a href="#修改回到顶部样式" class="headerlink" title="修改回到顶部样式"></a>修改回到顶部样式</h3><p>之前那个带有hover的弹跳效果，但是这个总会出现因为弹跳而点不到按钮的情况，表示有点舍本逐末了。</p>
+<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><p>今天直接reset了两个版本之后commit提示有conflict不让提交，用revert又搞不清楚接下来是怎么弄得，来来回回弄了几次太急躁了就直接<code>push origin-master --force</code>了。但是表示这真的是太不负责任了！感觉最近遇到瓶颈了，之前太匮乏，想弄得又太多，导致花了很多时间却效果不大。俗话说</p>
+<blockquote>
+<p>思而不学则惘</p>
+</blockquote>
+<p>先放下一段时间，不要那么浮躁。先去学习一下<code>css</code>和<code>javascript</code>再回来继续修改。</p>
+<hr>
+<h2 id="2016-2-6"><a href="#2016-2-6" class="headerlink" title="2016.2.6"></a>2016.2.6</h2><ul>
+<li>添加toc</li>
+<li>修改左侧栏宽度</li>
+</ul>
+<hr>
+<h2 id="2015-2-5"><a href="#2015-2-5" class="headerlink" title="2015.2.5"></a>2015.2.5</h2><ul>
+<li>更改头像动画</li>
+<li>加入不蒜子网页统计</li>
+<li>加入文章置顶功能</li>
+<li>代码样式及代码框样式调整</li>
+<li>加入jquery_ui</li>
+</ul>
+<h3 id="更改头像动画"><a href="#更改头像动画" class="headerlink" title="更改头像动画"></a>更改头像动画</h3><p>使用<code>animate.css</code>这个库,动画演示:<a href="http://daneden.github.io/animate.css/" target="_blank" rel="external">Animate</a><br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/9dd5b0a8b78902708ab4f99d53291cf555175721" target="_blank" rel="external">头像特效</a></p>
+<h3 id="不蒜子网页统计"><a href="#不蒜子网页统计" class="headerlink" title="不蒜子网页统计"></a>不蒜子网页统计</h3><p>就是现在我博客底部那个统计信息。<br><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a><br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/912e454f977bdb2ebe6ec74a215314152e0ede4a" target="_blank" rel="external">增加不蒜子网页统计功能</a></p>
+<h3 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h3><p>因为原来theme里面就已经有做好的js，所以只需要补上一点东西：<br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/e0840814d548ab33e726262ef2c6e84d52f73380" target="_blank" rel="external">置顶</a></p>
+<h3 id="代码样式及代码框样式调整"><a href="#代码样式及代码框样式调整" class="headerlink" title="代码样式及代码框样式调整"></a>代码样式及代码框样式调整</h3><p>这个直接搬运改好的highlight.styl好像并不能起作用。然后字体也不能正确显示。字体的话估计是font-family的问题，可是w3school上面说</p>
+<blockquote>
+<p>font-family 规定元素的字体系列。<br>font-family 可以把多个字体名称作为一个“回退”系统来保存。如果浏览器不支持第一个字体，则会尝试下一个。也就是说，font-family 属性的值是用于某个元素的字体族名称或/及类族名称的一个优先表。浏览器会使用它可识别的第一个值。</p>
+</blockquote>
+<p>我的电脑上有Consolas字体，可是在font-family里我不把font-family放在第一位，字体就变成了默认字体，而不能自动识别Consolas。代码样式这个改起来真心蛋疼。每个人喜欢的配置都不同，所以自己参考着更改吧。<br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/8da6fda5f6b1d3d181a510b155769a4d7d125378" target="_blank" rel="external">高亮样式</a></p>
+<h3 id="jqurey-ui"><a href="#jqurey-ui" class="headerlink" title="jqurey_ui"></a>jqurey_ui</h3><p>嘿嘿嘿这个是别人教我的。<a href="http://moxfive.xyz/2015/10/25/hexo-tag-cloud/" title="在他的评论框里" target="_blank" rel="external">就是他</a><br>再来点有意思的：</p>
+<p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;"><br>  <span class="ui-icon ui-icon-pencil" style="float:left; margin:-2px 5px 0 0;"></span><br>  简单的颜色选择器<br></p>
+
+<div id="red"></div><br><div id="green"></div><br><div id="blue"></div>
+
+<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+
+<p>这个需要的技能点：</p>
+<ul>
+<li>引入jquery_ui库</li>
+<li>添加js代码</li>
+<li>了解markdown语法的工作原理</li>
+</ul>
+<p>代码更改参考：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/4d42a6960e1a0b0303ce7b54318867b4e639a488" title="颜色选择器依葫芦画瓢" target="_blank" rel="external">加入jquery_ui动画</a><br>参考资料： <a href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html" target="_blank" rel="external">jQuery UI 教程</a></p>
+<hr>
+<h2 id="2016-2-4"><a href="#2016-2-4" class="headerlink" title="2016.2.4"></a>2016.2.4</h2><ul>
+<li>尝试去模仿一个all-categories的界面，但是并没有搞出来。结果是下面这样子的：<br><img src="https://ome6qqcd0.qnssl.com/tags.png" alt="吐血"></li>
+</ul>
+<li><del>七牛实名认证通过</del></li>
+
+<hr>
+<h2 id="2016-2-3"><a href="#2016-2-3" class="headerlink" title="2016.2.3"></a>2016.2.3</h2><ul>
+<li>添加分类页</li>
+<li>代码高亮样式</li>
+</ul>
+<p>实现方法有两种</p>
+<ol>
+<li>在文章中使用hexo的辅助函数<code>&lt;%- list_categories([options]) %&gt;</code>和<code>&lt;%- list_tags([options]) %&gt;</code>，来插入分类列表和标签列表。参考<a href="http://moxfive.xyz/2015/10/25/hexo-tag-cloud/" title="MOxFIVE的博客" target="_blank" rel="external">让 Hexo 自动生成 Tag Cloud 标签云页面</a></li>
+<li>自定义一个模板<code>.ejs</code>配合<code>js</code>去实现一个页面，参考<a href="http://jaychung.tw/all-categories/" title="all-cateories" target="_blank" rel="external">Jay Chung</a>，显示第二种的定制性会更高一些。</li>
+</ol>
+<p>鉴于自己的前端知识有限，故这里暂时只使用第1种方法。至于效果可以点击我的分类页查看，我这里是把theme里的tagcloud配合辅助函数完成的。参考<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/bae8cb3ea3c8cb78803315f874c32f8b0ca46be2" target="_blank" rel="external">添加分类页</a></p>
+<hr>
+<h2 id="2016-2-2"><a href="#2016-2-2" class="headerlink" title="2016.2.2"></a>2016.2.2</h2><p><del>1. 改theme颜色</del><br><del>2. 完成多说评论框</del><br><del>3. Markdown语法样式</del></p>
+<p>找了一晚上的theme，几乎把github上面所有高star的都看过了一遍，最后还是决定换一个简约一点的主题<a href="https://github.com/Jeffrey95/hexo-theme-yilia" title="一个简洁优雅的hexo主题" target="_blank" rel="external">yilia</a>。原来那个虽然首页比较好看，但是用起来并不怎么顺手。有了之前的经验，这次布置主题的过程还是比较顺利的。然而我怎么能忍受把主题搬过来一套就用呢？这和QQ空间还有什么区别呢，于是就开始了我的个性化博客之旅了。<br>要想个性化，最基本的技能点就是善用chrome的<code>审查元素</code>和在github看repositories上的<code>issues</code>和<code>commit记录</code></p>
+<h3 id="审查元素"><a href="#审查元素" class="headerlink" title="审查元素"></a>审查元素</h3><p><img src="https://ome6qqcd0.qnssl.com/F12.png" alt="审查元素"><br>chrome上面按f12，然后点箭头处，<br><img src="https://ome6qqcd0.qnssl.com/%E5%AE%A1%E6%9F%A5%E5%85%83%E7%B4%A0.png" alt="审查元素"></p>
+<h3 id="看commit记录"><a href="#看commit记录" class="headerlink" title="看commit记录"></a>看commit记录</h3><p><img src="https://ome6qqcd0.qnssl.com/commit.png" alt="commit"><br><img src="https://ome6qqcd0.qnssl.com/commit1.png" alt="commit1"><br>绿色是增加的，红色是删除的，不过对于已经学会用git的你来说应该不难吧。</p>
+<p>其实这都是最基本的技能，善用的话有助于你了解别人做了哪些修改，从而学习并自主进行修改。</p>
+<h3 id="改主题颜色"><a href="#改主题颜色" class="headerlink" title="改主题颜色"></a>改主题颜色</h3><p>原主题的颜色是暗色调的我不太喜欢，我更喜欢小清新一点的颜色。具体更改可以参考：<br>@<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/84f58dde1174c382902453c647b978e2b68310b0" target="_blank" rel="external">669a097</a></p>
+<hr>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>云+计划学生认证通过，送了38元的域名优惠券和云服务器的优惠券。云服务器的暂时不知道弄些什么，就还没有买。买了一年的.com域名，减去优惠券只用了11块。不过在腾讯买域名还要开通财付通，感觉不太喜欢啦。</p>
+<p>至于为什么不云腾讯云服务器搭博客，因为要备案域名啊，不备案的话访问不了啊。在重庆备案还挺麻烦的， 非本地人居然还不能备案了。</p>
+<p>申请到了域名之后，就要域名解析啦，我是直接在腾讯云上面进行解析的。我这里用的是一个二级域名<code>blog.qiujinfeng.com</code></p>
+<ol>
+<li>添加两个<code>A</code>记录，主机记录为<code>blog</code>，记录值为github page ip,分别设置为：<br><code>192.30.252.153</code><br><code>192.30.252.154</code><br>添加CNAME记录，主机记录为<code>www</code>,记录值为<code>username@github.io</code>（改成你自己的）</li>
+<li>在username@github.io的项目根目录下建立<strong>CNAME</strong>文件，<br>并填写内容为：<strong>blog.你的域名</strong>,<strong>commit</strong>。以我这个为例，就可以通过<strong>blog.qiujinfeng.com</strong>来访问我的博客了。这和访问<strong>jeffrey95.github.io</strong>的效果是一样的。</li>
+<li><code>一定要添加CNAME文件！一定要添加CNAME文件！一定要添加CNAME文件。</code>今晚上deploy之后发现CNAME文件不见了，然后博客就莫名其妙404了，害我还找好久。。</li>
+</ol>
+<h3 id="主页优化"><a href="#主页优化" class="headerlink" title="主页优化"></a>主页优化</h3><ol>
+<li>今天去问了主题的Designer,然后在github在commit记录里找到了实现透明下来改变opacity的代码。在<br><code>source/css/style.css</code><br>和<br><code>source/js/scripts.js</code><br>里面改</li>
+</ol>
+<h3 id="新姿势"><a href="#新姿势" class="headerlink" title="新姿势"></a>新姿势</h3><p>当你修改文章Tag或内容，不能正确重新生成内容，可以删除<code>hexo\db.json</code>后重试</p>
+<h3 id="NEXT"><a href="#NEXT" class="headerlink" title="NEXT"></a>NEXT</h3><p><del>1. 实现评论框</del><br><del>2. 注册七牛云空间作为博客的图床。</del></p>
+<hr>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><h3 id="域名-1"><a href="#域名-1" class="headerlink" title="域名"></a>域名</h3><p>在腾讯云+计划里找到了一个1元申请服务器和域名的计划，已经通过了学生认证。但是还没有申请域名。这也是一件不容易的事呢，想要的已经被申请了，真的想不太出要申请什么域名呢！等过两天域名代金券下来之后就可以开始弄域名解析啦，想想也是酷呢。</p>
+<h3 id="主页优化-1"><a href="#主页优化-1" class="headerlink" title="主页优化"></a>主页优化</h3><p>想在主页添加下拉的时候有透明度的改变，以及每次进入都会有图片的变化。但是貌似要学习js的知识。嗯，那就学吧~</p>
+<hr>
+<h2 id="Day-one"><a href="#Day-one" class="headerlink" title="Day one"></a>Day one</h2><p>一直就希望拥有一个自己的博客，之前考虑过用wordpress去搭建，可是考虑到要买vps和域名有点麻烦。今晚在找sublime搭建c++环境的时候无意间进到了一个博客，感觉做得还不错。一看域名是github.io结尾的，估计就是搭建在github上面的了。然后看了一关于我，看到是基于Hexo搭建的。百度了一下，就找到了不少教程。搭建过程还是挺简单的，因为之前就搭建好了github环境，所以只用再下一个node.js，然后按教程来就可以了。整个搭建过程不超过一个小时。而且以后也支持自定义域名，感觉还是挺方便的。</p>
+<p>今天做的事：</p>
+<ol>
+<li>本机搭建与调试hexo</li>
+<li>初步尝试插入主题和评论框</li>
+<li>熟悉基本操作</li>
+<li>尝试上传到网上</li>
+</ol>
+<h3 id="Remind"><a href="#Remind" class="headerlink" title="Remind"></a>Remind</h3><p>每次在本地修改调试可以用这条命令<br><code>$ hexo s -g</code></p>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a><br><a href="http://hifor.net/2015/07/01/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-hexo-github/" target="_blank" rel="external">零基础免费搭建个人博客-hexo+github</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题？</a><br><a href="http://segmentfault.com/a/1190000003710962?_ea=336354" target="_blank" rel="external">hexo博客搭建时遇到的一些问题</a></p>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ol>
+<li><p><strong> hexo一直deploy不上去，提示公钥错误</strong>。之前那个公钥是安装windows桌面版的github的时候生成的公钥，所以用git shell连接的时候是可以连上去的。可是用git bash的时候，就一直deny。估计是桌面版的github生成的公钥只能让github客户端和git shell用？<br> 解决方案：<br> 重新生成一个公钥并在github账号的setting里设置一下。<br> <code>ssh-keygen -t rsa -C &quot;usrname@email.com&quot;</code><br> 回车回车回车</p>
+<pre><code> $ cd ~/.ssh
+ $ ll
+total 14
+-rw-r--r-- 1 QIU 197609 1679 9月  16 15:10 github_rsa
+-rw-r--r-- 1 QIU 197609  389 9月  16 15:10 github_rsa.pub
+-rw-r--r-- 1 QIU 197609 1679 1月  21 15:38 id_rsa
+-rw-r--r-- 1 QIU 197609  405 1月  21 15:38 id_rsa.pub
+-rw-r--r-- 1 QIU 197609 1199 1月  21 15:52 known_hosts
+</code></pre><pre><code> $ cat id_rsa.pub
+</code></pre><p> 把打印出来的内容复制到github的key里面去。这样就可以正常连接了</p>
+</li>
+<li><p><strong>hexo deploy命令显示ERROR Deployer not found : github</strong><br> 原因：hexo下的<code>_config.yml</code>里的</p>
+<pre><code> ``` 
+</code></pre><p> deploy:<br>   type: github<br> <code>``
+ deploy的type改成git，然后运行下在git bush里运行</code>npm install hexo-deployer-git –save<code>`hexo g</code><br><code>hexo d</code><br>网上的教程大多都是针对<strong>2.x</strong>的, 最新版本是<strong>3.x</strong>要像上面那样那么弄。许多作者没有注明hexo版本。</p>
+</li>
+<li><p><code>_config.yml</code>yaml语法要求严格，每一个脑要后面都要一个空格，否则报错：</p>
+<pre><code> can not read a block mapping entry; a multiline key may not be an imp
+ licit key
+</code></pre><p> 错误的设置：</p>
+<pre><code> author:Zhchnchn
+ email:XXX@qq.com
+ language:zh-CN
+</code></pre><p> 正确的设置：</p>
+<pre><code> author: Zhchnchn
+ email: XXX@qq.com
+ language: zh-CN
+</code></pre><p> 注意空格。</p>
+</li>
+</ol>
+<h3 id="Summray"><a href="#Summray" class="headerlink" title="Summray"></a>Summray</h3><ol>
+<li>今天把sublime的build system弄好了，支持路径名里带空格~</li>
+<li>搭了个最最基本的自己的博客。虽然还是很丑，速度也很慢，还有很多需要自己学习呢~</li>
+<li>重新学习了git的用法</li>
+</ol>
+<h3 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h3><ol>
+<li>学习相应的js知识来优化博客界面</li>
+<li>优化访问速度。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 爱折腾 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>

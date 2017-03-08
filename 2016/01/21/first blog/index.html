@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            hexo博客搭建过程 | 
+        
+        Hello World
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/mysource/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/mysource/favicon.png">
+    <link rel="apple-touch-icon" href="/img/mysource/favicon.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="疯疯">
+    <meta name="description" content="Be a better man">
+    <meta name="keywords" content="null,博客">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hello World">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.qiujinfeng.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="hexo博客搭建过程 | Hello World">
+    <meta property="og:description" content="Be a better man">
+    <meta property="og:article:tag" content="博客"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+        
+            <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+        
+            <meta name="google-site-verification" content="qwpiLtLdUJ0n0fbhZibibWYv_CqpXlFjiCZp8L1cxXM" />
+        
+            <meta name="360-site-verification" content="f527031e1196cb845faf5fa260d46378" />
+        
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2016-2-9"><span class="post-toc-number">1.</span> <span class="post-toc-text">2016.2.9</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#取消toc"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">取消toc</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#取消左侧栏宽度"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">取消左侧栏宽度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改回到顶部样式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">修改回到顶部样式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#感想"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">感想</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2016-2-6"><span class="post-toc-number">2.</span> <span class="post-toc-text">2016.2.6</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2015-2-5"><span class="post-toc-number">3.</span> <span class="post-toc-text">2015.2.5</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更改头像动画"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">更改头像动画</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不蒜子网页统计"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">不蒜子网页统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文章置顶"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">文章置顶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码样式及代码框样式调整"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">代码样式及代码框样式调整</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jqurey-ui"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">jqurey_ui</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2016-2-4"><span class="post-toc-number">4.</span> <span class="post-toc-text">2016.2.4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2016-2-3"><span class="post-toc-number">5.</span> <span class="post-toc-text">2016.2.3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2016-2-2"><span class="post-toc-number">6.</span> <span class="post-toc-text">2016.2.2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#审查元素"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">审查元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#看commit记录"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">看commit记录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改主题颜色"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">改主题颜色</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Day-3"><span class="post-toc-number">7.</span> <span class="post-toc-text">Day 3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">域名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主页优化"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">主页优化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新姿势"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">新姿势</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NEXT"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">NEXT</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Day-2"><span class="post-toc-number">8.</span> <span class="post-toc-text">Day 2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名-1"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">域名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主页优化-1"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">主页优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Day-one"><span class="post-toc-number">9.</span> <span class="post-toc-text">Day one</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Remind"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">Remind</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#link"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">link</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Error"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">Error</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Summray"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">Summray</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Next"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">Next</span></a></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                hexo博客搭建过程
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>疯疯</strong>
+        <span>1月 21, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/博客/">博客</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=hexo博客搭建过程&url=https://blog.qiujinfeng.com//2016/01/21/first blog/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=hexo博客搭建过程&url=https://blog.qiujinfeng.com//2016/01/21/first blog/index.html&via=疯疯" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.qiujinfeng.com//2016/01/21/first blog/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.qiujinfeng.com//2016/01/21/first blog/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hello World&title=hexo博客搭建过程&summary=Be a better man&pics=https://blog.qiujinfeng.com/img/mysource/favicon.png&url=https://blog.qiujinfeng.com/2016/01/21/first blog/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="2016-2-9"><a href="#2016-2-9" class="headerlink" title="2016.2.9"></a>2016.2.9</h2><ul>
+<li>取消toc</li>
+<li>撤销左侧栏宽度更改</li>
+<li>修改回到顶部样式</li>
+</ul>
+<a id="more"></a>
+<h3 id="取消toc"><a href="#取消toc" class="headerlink" title="取消toc"></a>取消toc</h3><p>之前那个toc做得不满意，打算模仿next主题里的sidebar里的toc样式。那个做得不错。</p>
+<h3 id="取消左侧栏宽度"><a href="#取消左侧栏宽度" class="headerlink" title="取消左侧栏宽度"></a>取消左侧栏宽度</h3><p>按之前的commit记录修改之后left-col里的元素不能居中对齐，强迫症表示不能忍受。</p>
+<h3 id="修改回到顶部样式"><a href="#修改回到顶部样式" class="headerlink" title="修改回到顶部样式"></a>修改回到顶部样式</h3><p>之前那个带有hover的弹跳效果，但是这个总会出现因为弹跳而点不到按钮的情况，表示有点舍本逐末了。</p>
+<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><p>今天直接reset了两个版本之后commit提示有conflict不让提交，用revert又搞不清楚接下来是怎么弄得，来来回回弄了几次太急躁了就直接<code>push origin-master --force</code>了。但是表示这真的是太不负责任了！感觉最近遇到瓶颈了，之前太匮乏，想弄得又太多，导致花了很多时间却效果不大。俗话说</p>
+<blockquote>
+<p>思而不学则惘</p>
+</blockquote>
+<p>先放下一段时间，不要那么浮躁。先去学习一下<code>css</code>和<code>javascript</code>再回来继续修改。</p>
+<hr>
+<h2 id="2016-2-6"><a href="#2016-2-6" class="headerlink" title="2016.2.6"></a>2016.2.6</h2><ul>
+<li>添加toc</li>
+<li>修改左侧栏宽度</li>
+</ul>
+<hr>
+<h2 id="2015-2-5"><a href="#2015-2-5" class="headerlink" title="2015.2.5"></a>2015.2.5</h2><ul>
+<li>更改头像动画</li>
+<li>加入不蒜子网页统计</li>
+<li>加入文章置顶功能</li>
+<li>代码样式及代码框样式调整</li>
+<li>加入jquery_ui</li>
+</ul>
+<h3 id="更改头像动画"><a href="#更改头像动画" class="headerlink" title="更改头像动画"></a>更改头像动画</h3><p>使用<code>animate.css</code>这个库,动画演示:<a href="http://daneden.github.io/animate.css/" target="_blank" rel="external">Animate</a><br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/9dd5b0a8b78902708ab4f99d53291cf555175721" target="_blank" rel="external">头像特效</a></p>
+<h3 id="不蒜子网页统计"><a href="#不蒜子网页统计" class="headerlink" title="不蒜子网页统计"></a>不蒜子网页统计</h3><p>就是现在我博客底部那个统计信息。<br><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a><br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/912e454f977bdb2ebe6ec74a215314152e0ede4a" target="_blank" rel="external">增加不蒜子网页统计功能</a></p>
+<h3 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h3><p>因为原来theme里面就已经有做好的js，所以只需要补上一点东西：<br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/e0840814d548ab33e726262ef2c6e84d52f73380" target="_blank" rel="external">置顶</a></p>
+<h3 id="代码样式及代码框样式调整"><a href="#代码样式及代码框样式调整" class="headerlink" title="代码样式及代码框样式调整"></a>代码样式及代码框样式调整</h3><p>这个直接搬运改好的highlight.styl好像并不能起作用。然后字体也不能正确显示。字体的话估计是font-family的问题，可是w3school上面说</p>
+<blockquote>
+<p>font-family 规定元素的字体系列。<br>font-family 可以把多个字体名称作为一个“回退”系统来保存。如果浏览器不支持第一个字体，则会尝试下一个。也就是说，font-family 属性的值是用于某个元素的字体族名称或/及类族名称的一个优先表。浏览器会使用它可识别的第一个值。</p>
+</blockquote>
+<p>我的电脑上有Consolas字体，可是在font-family里我不把font-family放在第一位，字体就变成了默认字体，而不能自动识别Consolas。代码样式这个改起来真心蛋疼。每个人喜欢的配置都不同，所以自己参考着更改吧。<br>代码更改：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/8da6fda5f6b1d3d181a510b155769a4d7d125378" target="_blank" rel="external">高亮样式</a></p>
+<h3 id="jqurey-ui"><a href="#jqurey-ui" class="headerlink" title="jqurey_ui"></a>jqurey_ui</h3><p>嘿嘿嘿这个是别人教我的。<a href="http://moxfive.xyz/2015/10/25/hexo-tag-cloud/" title="在他的评论框里" target="_blank" rel="external">就是他</a><br>再来点有意思的：</p>
+<p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;"><br>  <span class="ui-icon ui-icon-pencil" style="float:left; margin:-2px 5px 0 0;"></span><br>  简单的颜色选择器<br></p>
+
+<div id="red"></div><br><div id="green"></div><br><div id="blue"></div>
+
+<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+
+<p>这个需要的技能点：</p>
+<ul>
+<li>引入jquery_ui库</li>
+<li>添加js代码</li>
+<li>了解markdown语法的工作原理</li>
+</ul>
+<p>代码更改参考：<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/4d42a6960e1a0b0303ce7b54318867b4e639a488" title="颜色选择器依葫芦画瓢" target="_blank" rel="external">加入jquery_ui动画</a><br>参考资料： <a href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html" target="_blank" rel="external">jQuery UI 教程</a></p>
+<hr>
+<h2 id="2016-2-4"><a href="#2016-2-4" class="headerlink" title="2016.2.4"></a>2016.2.4</h2><ul>
+<li>尝试去模仿一个all-categories的界面，但是并没有搞出来。结果是下面这样子的：<br><img src="https://ome6qqcd0.qnssl.com/tags.png" alt="吐血"></li>
+</ul>
+<li><del>七牛实名认证通过</del></li>
+
+<hr>
+<h2 id="2016-2-3"><a href="#2016-2-3" class="headerlink" title="2016.2.3"></a>2016.2.3</h2><ul>
+<li>添加分类页</li>
+<li>代码高亮样式</li>
+</ul>
+<p>实现方法有两种</p>
+<ol>
+<li>在文章中使用hexo的辅助函数<code>&lt;%- list_categories([options]) %&gt;</code>和<code>&lt;%- list_tags([options]) %&gt;</code>，来插入分类列表和标签列表。参考<a href="http://moxfive.xyz/2015/10/25/hexo-tag-cloud/" title="MOxFIVE的博客" target="_blank" rel="external">让 Hexo 自动生成 Tag Cloud 标签云页面</a></li>
+<li>自定义一个模板<code>.ejs</code>配合<code>js</code>去实现一个页面，参考<a href="http://jaychung.tw/all-categories/" title="all-cateories" target="_blank" rel="external">Jay Chung</a>，显示第二种的定制性会更高一些。</li>
+</ol>
+<p>鉴于自己的前端知识有限，故这里暂时只使用第1种方法。至于效果可以点击我的分类页查看，我这里是把theme里的tagcloud配合辅助函数完成的。参考<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/bae8cb3ea3c8cb78803315f874c32f8b0ca46be2" target="_blank" rel="external">添加分类页</a></p>
+<hr>
+<h2 id="2016-2-2"><a href="#2016-2-2" class="headerlink" title="2016.2.2"></a>2016.2.2</h2><p><del>1. 改theme颜色</del><br><del>2. 完成多说评论框</del><br><del>3. Markdown语法样式</del></p>
+<p>找了一晚上的theme，几乎把github上面所有高star的都看过了一遍，最后还是决定换一个简约一点的主题<a href="https://github.com/Jeffrey95/hexo-theme-yilia" title="一个简洁优雅的hexo主题" target="_blank" rel="external">yilia</a>。原来那个虽然首页比较好看，但是用起来并不怎么顺手。有了之前的经验，这次布置主题的过程还是比较顺利的。然而我怎么能忍受把主题搬过来一套就用呢？这和QQ空间还有什么区别呢，于是就开始了我的个性化博客之旅了。<br>要想个性化，最基本的技能点就是善用chrome的<code>审查元素</code>和在github看repositories上的<code>issues</code>和<code>commit记录</code></p>
+<h3 id="审查元素"><a href="#审查元素" class="headerlink" title="审查元素"></a>审查元素</h3><p><img src="https://ome6qqcd0.qnssl.com/F12.png" alt="审查元素"><br>chrome上面按f12，然后点箭头处，<br><img src="https://ome6qqcd0.qnssl.com/%E5%AE%A1%E6%9F%A5%E5%85%83%E7%B4%A0.png" alt="审查元素"></p>
+<h3 id="看commit记录"><a href="#看commit记录" class="headerlink" title="看commit记录"></a>看commit记录</h3><p><img src="https://ome6qqcd0.qnssl.com/commit.png" alt="commit"><br><img src="https://ome6qqcd0.qnssl.com/commit1.png" alt="commit1"><br>绿色是增加的，红色是删除的，不过对于已经学会用git的你来说应该不难吧。</p>
+<p>其实这都是最基本的技能，善用的话有助于你了解别人做了哪些修改，从而学习并自主进行修改。</p>
+<h3 id="改主题颜色"><a href="#改主题颜色" class="headerlink" title="改主题颜色"></a>改主题颜色</h3><p>原主题的颜色是暗色调的我不太喜欢，我更喜欢小清新一点的颜色。具体更改可以参考：<br>@<a href="https://github.com/Jeffrey95/hexo-theme-yilia/commit/84f58dde1174c382902453c647b978e2b68310b0" target="_blank" rel="external">669a097</a></p>
+<hr>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>云+计划学生认证通过，送了38元的域名优惠券和云服务器的优惠券。云服务器的暂时不知道弄些什么，就还没有买。买了一年的.com域名，减去优惠券只用了11块。不过在腾讯买域名还要开通财付通，感觉不太喜欢啦。</p>
+<p>至于为什么不云腾讯云服务器搭博客，因为要备案域名啊，不备案的话访问不了啊。在重庆备案还挺麻烦的， 非本地人居然还不能备案了。</p>
+<p>申请到了域名之后，就要域名解析啦，我是直接在腾讯云上面进行解析的。我这里用的是一个二级域名<code>blog.qiujinfeng.com</code></p>
+<ol>
+<li>添加两个<code>A</code>记录，主机记录为<code>blog</code>，记录值为github page ip,分别设置为：<br><code>192.30.252.153</code><br><code>192.30.252.154</code><br>添加CNAME记录，主机记录为<code>www</code>,记录值为<code>username@github.io</code>（改成你自己的）</li>
+<li>在username@github.io的项目根目录下建立<strong>CNAME</strong>文件，<br>并填写内容为：<strong>blog.你的域名</strong>,<strong>commit</strong>。以我这个为例，就可以通过<strong>blog.qiujinfeng.com</strong>来访问我的博客了。这和访问<strong>jeffrey95.github.io</strong>的效果是一样的。</li>
+<li><code>一定要添加CNAME文件！一定要添加CNAME文件！一定要添加CNAME文件。</code>今晚上deploy之后发现CNAME文件不见了，然后博客就莫名其妙404了，害我还找好久。。</li>
+</ol>
+<h3 id="主页优化"><a href="#主页优化" class="headerlink" title="主页优化"></a>主页优化</h3><ol>
+<li>今天去问了主题的Designer,然后在github在commit记录里找到了实现透明下来改变opacity的代码。在<br><code>source/css/style.css</code><br>和<br><code>source/js/scripts.js</code><br>里面改</li>
+</ol>
+<h3 id="新姿势"><a href="#新姿势" class="headerlink" title="新姿势"></a>新姿势</h3><p>当你修改文章Tag或内容，不能正确重新生成内容，可以删除<code>hexo\db.json</code>后重试</p>
+<h3 id="NEXT"><a href="#NEXT" class="headerlink" title="NEXT"></a>NEXT</h3><p><del>1. 实现评论框</del><br><del>2. 注册七牛云空间作为博客的图床。</del></p>
+<hr>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><h3 id="域名-1"><a href="#域名-1" class="headerlink" title="域名"></a>域名</h3><p>在腾讯云+计划里找到了一个1元申请服务器和域名的计划，已经通过了学生认证。但是还没有申请域名。这也是一件不容易的事呢，想要的已经被申请了，真的想不太出要申请什么域名呢！等过两天域名代金券下来之后就可以开始弄域名解析啦，想想也是酷呢。</p>
+<h3 id="主页优化-1"><a href="#主页优化-1" class="headerlink" title="主页优化"></a>主页优化</h3><p>想在主页添加下拉的时候有透明度的改变，以及每次进入都会有图片的变化。但是貌似要学习js的知识。嗯，那就学吧~</p>
+<hr>
+<h2 id="Day-one"><a href="#Day-one" class="headerlink" title="Day one"></a>Day one</h2><p>一直就希望拥有一个自己的博客，之前考虑过用wordpress去搭建，可是考虑到要买vps和域名有点麻烦。今晚在找sublime搭建c++环境的时候无意间进到了一个博客，感觉做得还不错。一看域名是github.io结尾的，估计就是搭建在github上面的了。然后看了一关于我，看到是基于Hexo搭建的。百度了一下，就找到了不少教程。搭建过程还是挺简单的，因为之前就搭建好了github环境，所以只用再下一个node.js，然后按教程来就可以了。整个搭建过程不超过一个小时。而且以后也支持自定义域名，感觉还是挺方便的。</p>
+<p>今天做的事：</p>
+<ol>
+<li>本机搭建与调试hexo</li>
+<li>初步尝试插入主题和评论框</li>
+<li>熟悉基本操作</li>
+<li>尝试上传到网上</li>
+</ol>
+<h3 id="Remind"><a href="#Remind" class="headerlink" title="Remind"></a>Remind</h3><p>每次在本地修改调试可以用这条命令<br><code>$ hexo s -g</code></p>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a><br><a href="http://hifor.net/2015/07/01/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-hexo-github/" target="_blank" rel="external">零基础免费搭建个人博客-hexo+github</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题？</a><br><a href="http://segmentfault.com/a/1190000003710962?_ea=336354" target="_blank" rel="external">hexo博客搭建时遇到的一些问题</a></p>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ol>
+<li><p><strong> hexo一直deploy不上去，提示公钥错误</strong>。之前那个公钥是安装windows桌面版的github的时候生成的公钥，所以用git shell连接的时候是可以连上去的。可是用git bash的时候，就一直deny。估计是桌面版的github生成的公钥只能让github客户端和git shell用？<br> 解决方案：<br> 重新生成一个公钥并在github账号的setting里设置一下。<br> <code>ssh-keygen -t rsa -C &quot;usrname@email.com&quot;</code><br> 回车回车回车</p>
+<pre><code> $ cd ~/.ssh
+ $ ll
+total 14
+-rw-r--r-- 1 QIU 197609 1679 9月  16 15:10 github_rsa
+-rw-r--r-- 1 QIU 197609  389 9月  16 15:10 github_rsa.pub
+-rw-r--r-- 1 QIU 197609 1679 1月  21 15:38 id_rsa
+-rw-r--r-- 1 QIU 197609  405 1月  21 15:38 id_rsa.pub
+-rw-r--r-- 1 QIU 197609 1199 1月  21 15:52 known_hosts
+</code></pre><pre><code> $ cat id_rsa.pub
+</code></pre><p> 把打印出来的内容复制到github的key里面去。这样就可以正常连接了</p>
+</li>
+<li><p><strong>hexo deploy命令显示ERROR Deployer not found : github</strong><br> 原因：hexo下的<code>_config.yml</code>里的</p>
+<pre><code> ``` 
+</code></pre><p> deploy:<br>   type: github<br> <code>``
+ deploy的type改成git，然后运行下在git bush里运行</code>npm install hexo-deployer-git –save<code>`hexo g</code><br><code>hexo d</code><br>网上的教程大多都是针对<strong>2.x</strong>的, 最新版本是<strong>3.x</strong>要像上面那样那么弄。许多作者没有注明hexo版本。</p>
+</li>
+<li><p><code>_config.yml</code>yaml语法要求严格，每一个脑要后面都要一个空格，否则报错：</p>
+<pre><code> can not read a block mapping entry; a multiline key may not be an imp
+ licit key
+</code></pre><p> 错误的设置：</p>
+<pre><code> author:Zhchnchn
+ email:XXX@qq.com
+ language:zh-CN
+</code></pre><p> 正确的设置：</p>
+<pre><code> author: Zhchnchn
+ email: XXX@qq.com
+ language: zh-CN
+</code></pre><p> 注意空格。</p>
+</li>
+</ol>
+<h3 id="Summray"><a href="#Summray" class="headerlink" title="Summray"></a>Summray</h3><ol>
+<li>今天把sublime的build system弄好了，支持路径名里带空格~</li>
+<li>搭了个最最基本的自己的博客。虽然还是很丑，速度也很慢，还有很多需要自己学习呢~</li>
+<li>重新学习了git的用法</li>
+</ol>
+<h3 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h3><ol>
+<li>学习相应的js知识来优化博客界面</li>
+<li>优化访问速度。</li>
+</ol>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
+    }
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key="2016/01/21/first blog/"
+        data-url="https://blog.qiujinfeng.com/2016/01/21/first blog/"
+        data-title="hexo博客搭建过程">
+    </div>
+    <!-- 多说评论框 end -->
+</div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/02/21/将sublime打造为轻量级的C++ IDE（详细）/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/mysource/sidebar_header1.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="疯疯's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        974514569@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="小伙伴">
+                
+                    <i class="material-icons sidebar-material-icons">account_box</i>
+                
+                小伙伴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/1921356542/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Jeffrey95" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/qiu-jin-feng-47" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-zhihu.png);">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Hello World
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   
+
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qiujinfeng"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+    <script>
+    var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: 'xml',
+            success: function( xmlResponse ) {
+                // get the contents from search data
+                var datas = $( 'entry', xmlResponse ).map(function() {
+                    return {
+                        title: $( 'title', this ).text(),
+                        content: $('content',this).text(),
+                        url: $( 'url' , this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function() {
+                    var str='<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = '';
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function(data) {
+                        var isMatch = true;
+                        var content_index = [];
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g,'').toLowerCase();
+                        var data_url = data.url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if(data_title !== '' && data_content !== '') {
+                            keywords.forEach(function(keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if( index_title < 0 && index_content < 0 ) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += '<li><a href="'+ data_url +'" class="search-result-title" target="_blank">'+ data_title;
+                            var content = data.content.trim().replace(/<[^>]+>/g, '');
+                            if (first_occur >= 0) {
+                                // cut out characters
+                                var start = first_occur - 6;
+                                var end = first_occur + 6;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 10;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, 'gi');
+                                    match_content = match_content.replace(regS, '<em class="search-keyword">'+keyword+'</em>');
+                                })
+                                str += '<p class="search-result">' + match_content + '...</p>' +'</a>';
+                            }
+                        }
+                    });
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    }
+</script>
+
+
+    <script>
+        var inputArea = document.querySelector('#search');
+        var getSearchFile = function() {
+            var path = 'search.xml';
+            searchFunc(path, 'search', 'local-search-result');
+        }
+
+        if(inputArea) {
+            inputArea.onfocus = function() {
+                getSearchFile();
+            }
+        }
+    </script>
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>
