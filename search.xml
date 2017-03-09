@@ -443,7 +443,7 @@ head==tail
     
     <entry>
       <title><![CDATA[从Windows转向Ubuntu]]></title>
-      <url>https://blog.qiujinfeng.com/2016/03/01/from-Windows-tp-Ubuntu/</url>
+      <url>https://blog.qiujinfeng.com/2016/03/01/from-Windows-to-Ubuntu/</url>
       <content type="html"><![CDATA[<p>这里介绍了之前从使用Windows开发到转向使用Ubuntu开发的理由，以为Ubuntu下的一些配置工作。当作个人的笔记使用。<br><a id="more"></a></p>
 <h2 id="为什么使用Ubuntu"><a href="#为什么使用Ubuntu" class="headerlink" title="为什么使用Ubuntu"></a>为什么使用Ubuntu</h2><p>最近在学python,之前用的windows,安装第三方库的时候总会遇到各种各样奇奇怪怪的bug,而且也挺麻烦。Ubuntu下面自带python，gnu等环境。而且要安装<code>git</code>,<code>nodejs</code>以及其他各种软件都可以通过<code>Terminal</code>优雅地完成，而且所需要的依赖包也可以自动安装地多。刚开始看到<a href="https://github.com/Jeffrey95/StarterLearningPython" target="_blank" rel="external">《零基础学python（第二版）》</a>上面说：</p>
 <blockquote>
