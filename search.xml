@@ -104,7 +104,7 @@ join<span class="token punctuation">(</span><span class="token punctuation">.</s
     
     <entry>
       <title><![CDATA[授人以渔--解决Matlab中文乱码]]></title>
-      <url>https://blog.qiujinfeng.com/2016/09/30/%E6%8E%88%E4%BA%BA%E4%BB%A5%E6%B8%94-%E8%A7%A3%E5%86%B3Matlab%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/</url>
+      <url>https://blog.qiujinfeng.com/2016/09/30/solve-matlab-Chinese-perform-error/</url>
       <content type="html"><![CDATA[<p>本文分析了macOS下Matlab中文乱码的原因，区别于网上很多不通用的方案，对于个人的不同情况能有对应的解决方案，希望能对你有所帮助。<br><a id="more"></a></p>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
 <li>系统：OS X EI Captian 10.11.6</li>
@@ -406,7 +406,7 @@ head==tail
     
     <entry>
       <title><![CDATA[用python爬取Vjudge上的用户提交记录]]></title>
-      <url>https://blog.qiujinfeng.com/2016/05/27/Virtual-Judge%E7%88%AC%E8%99%AB%E5%AE%9D%E5%AE%9D%E8%AF%9E%E7%94%9F%E8%AE%B0%EF%BC%88%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</url>
+      <url>https://blog.qiujinfeng.com/2016/05/27/Vjudge-crawler/</url>
       <content type="html"><![CDATA[<p>本文介绍了如何使用python来爬取Vjudge上面的用户数据，迟一点会根据爬取下来的数据进行数据分析和挖掘。由于Vjudge之前更改了版本并且提供了api，所以这里内容需要更新一下。目前还没写完。<br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个重度拖延者晚期无药可救患者，从大一下学期开始就希望学习Python来做个爬虫玩玩，然而现在大二下都快要结束了- -。。<strong>爬虫</strong> 是个什么东西，简单来说，你可以把爬虫看成是一个网上的蜘蛛，它可以从互联网上抓取一些你需要的信息下来。爬虫可以做些什么呢？以搜索引擎为例，它就是爬虫把各个网站爬取并收录到数据库当中。当然，这是不足以打动我的。我之所以对爬虫这么感兴趣，主要还是看到了。<br>例如说：</p>
 <ul>
@@ -443,7 +443,7 @@ head==tail
     
     <entry>
       <title><![CDATA[从Windows转向Ubuntu]]></title>
-      <url>https://blog.qiujinfeng.com/2016/03/01/%E4%BB%8EWindows%E8%BD%AC%E5%90%91Ubuntu/</url>
+      <url>https://blog.qiujinfeng.com/2016/03/01/from-Windows-tp-Ubuntu/</url>
       <content type="html"><![CDATA[<p>这里介绍了之前从使用Windows开发到转向使用Ubuntu开发的理由，以为Ubuntu下的一些配置工作。当作个人的笔记使用。<br><a id="more"></a></p>
 <h2 id="为什么使用Ubuntu"><a href="#为什么使用Ubuntu" class="headerlink" title="为什么使用Ubuntu"></a>为什么使用Ubuntu</h2><p>最近在学python,之前用的windows,安装第三方库的时候总会遇到各种各样奇奇怪怪的bug,而且也挺麻烦。Ubuntu下面自带python，gnu等环境。而且要安装<code>git</code>,<code>nodejs</code>以及其他各种软件都可以通过<code>Terminal</code>优雅地完成，而且所需要的依赖包也可以自动安装地多。刚开始看到<a href="https://github.com/Jeffrey95/StarterLearningPython" target="_blank" rel="external">《零基础学python（第二版）》</a>上面说：</p>
 <blockquote>
@@ -502,7 +502,7 @@ $ source ~/.nvm/nvm.sh
     
     <entry>
       <title><![CDATA[将sublime打造为轻量级的C++ IDE（详细）]]></title>
-      <url>https://blog.qiujinfeng.com/2016/02/21/%E5%B0%86sublime%E6%89%93%E9%80%A0%E4%B8%BA%E8%BD%BB%E9%87%8F%E7%BA%A7%E7%9A%84C++%20IDE%EF%BC%88%E8%AF%A6%E7%BB%86%EF%BC%89/</url>
+      <url>https://blog.qiujinfeng.com/2016/02/21/making-Sublime-Text-cplusplus-IDE/</url>
       <content type="html"><![CDATA[<p>本文较为详细地介绍了在Windows和Ubuntu系统下，如何配置Sublime Text的C++编译运行环境。目前实现了了可以在Sublime Text按下快捷键后，调出CMD或者终端来运行C/C++程序，从而解决了Sublime Text无法接收输入的问题。<br>另外本文也介绍了一些Sublime Text的使用和用户配置备份的方法，具有一定的参考作用。<br><a id="more"></a></p>
 <h3 id="使用背景"><a href="#使用背景" class="headerlink" title="使用背景"></a>使用背景</h3><p>现在搞ACM-ICPC的比赛，经常写算法程序。说一说使用过的IDE吧：</p>
 <ul>
