@@ -148,7 +148,7 @@ join<span class="token punctuation">(</span><span class="token punctuation">.</s
       
         <categories>
             
-            <category> 编程工具 </category>
+            <category> 工具相关 </category>
             
         </categories>
         
@@ -389,7 +389,7 @@ head==tail
       
         <categories>
             
-            <category> 算法笔记 </category>
+            <category> 算法相关 </category>
             
         </categories>
         
@@ -398,9 +398,7 @@ head==tail
             
             <tag> ACM </tag>
             
-            <tag> queue </tag>
-            
-            <tag> stack </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
         
@@ -422,7 +420,7 @@ head==tail
       
         <categories>
             
-            <category> 编程工具 </category>
+            <category> Web </category>
             
         </categories>
         
@@ -437,6 +435,8 @@ head==tail
             
             <tag> 交题记录 </tag>
             
+            <tag> ACM </tag>
+            
         </tags>
         
     </entry>
@@ -444,7 +444,7 @@ head==tail
     <entry>
       <title><![CDATA[从Windows转向Ubuntu]]></title>
       <url>https://blog.qiujinfeng.com/2016/03/01/%E4%BB%8EWindows%E8%BD%AC%E5%90%91Ubuntu/</url>
-      <content type="html"><![CDATA[<p>本文介绍了之前从使用Windows开发到转向使用Ubuntu开发的理由，以为Ubuntu下的一些配置工作。当作个人的笔记使用。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>这里介绍了之前从使用Windows开发到转向使用Ubuntu开发的理由，以为Ubuntu下的一些配置工作。当作个人的笔记使用。<br><a id="more"></a></p>
 <h2 id="为什么使用Ubuntu"><a href="#为什么使用Ubuntu" class="headerlink" title="为什么使用Ubuntu"></a>为什么使用Ubuntu</h2><p>最近在学python,之前用的windows,安装第三方库的时候总会遇到各种各样奇奇怪怪的bug,而且也挺麻烦。Ubuntu下面自带python，gnu等环境。而且要安装<code>git</code>,<code>nodejs</code>以及其他各种软件都可以通过<code>Terminal</code>优雅地完成，而且所需要的依赖包也可以自动安装地多。刚开始看到<a href="https://github.com/Jeffrey95/StarterLearningPython" target="_blank" rel="external">《零基础学python（第二版）》</a>上面说：</p>
 <blockquote>
 <p>windows操作系统的用户，特别提醒用windows的用户，使用windows不是你的错，错就错在你只会使用鼠标点来点去，而不想也不会使用命令，更不想也不会使用linux的命令，还梦想成为优秀程序员。</p>
@@ -487,14 +487,14 @@ $ source ~/.nvm/nvm.sh
       
         <categories>
             
-            <category> 个人心得 </category>
+            <category> 工具相关 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> ubuntu </tag>
+            <tag> Ubuntu </tag>
             
         </tags>
         
@@ -733,7 +733,7 @@ int main()
       
         <categories>
             
-            <category> 编程工具 </category>
+            <category> 工具相关 </category>
             
         </categories>
         
@@ -866,7 +866,7 @@ total 14
 </code></pre><p> 把打印出来的内容复制到github的key里面去。这样就可以正常连接了</p>
 </li>
 <li><p><strong>hexo deploy命令显示ERROR Deployer not found : github</strong><br> 原因：hexo下的<code>_config.yml</code>里的</p>
-<pre><code> ``` 
+<pre><code> ```
 </code></pre><p> deploy:<br>   type: github<br> <code>``
  deploy的type改成git，然后运行下在git bush里运行</code>npm install hexo-deployer-git –save<code>`hexo g</code><br><code>hexo d</code><br>网上的教程大多都是针对<strong>2.x</strong>的, 最新版本是<strong>3.x</strong>要像上面那样那么弄。许多作者没有注明hexo版本。</p>
 </li>
@@ -897,7 +897,7 @@ total 14
       
         <categories>
             
-            <category> 爱折腾 </category>
+            <category> Web </category>
             
         </categories>
         
