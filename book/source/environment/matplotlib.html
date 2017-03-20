@@ -1,0 +1,311 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>解决matplotlib中文乱码 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="pyenv.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="environment.html">
+            
+                <a href="environment.html">
+            
+                    
+                    环境配置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="pyenv.html">
+            
+                <a href="pyenv.html">
+            
+                    
+                    pyenv管理python版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="matplotlib.html">
+            
+                <a href="matplotlib.html">
+            
+                    
+                    解决matplotlib中文乱码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >解决matplotlib中文乱码</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-circle-o-right"></span><a href="#1-&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;"><b></b>&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;</a></li><ul><li><span class="title-icon fa fa-circle"></span><a href="#11-&#x73B0;&#x8C61;"><b></b>&#x73B0;&#x8C61;</a></li><li><span class="title-icon fa fa-circle"></span><a href="#12-&#x89E3;&#x51B3;"><b></b>&#x89E3;&#x51B3;</a></li></ul></ul></div><a href="#1-&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="1-&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;"><a name="1-&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;" class="anchor-navigation-ex-anchor" href="#1-&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;matplotlib&#x4E2D;&#x6587;&#x4E71;&#x7801;</h1>
+<h2 id="11-&#x73B0;&#x8C61;"><a name="11-&#x73B0;&#x8C61;" class="anchor-navigation-ex-anchor" href="#11-&#x73B0;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x73B0;&#x8C61;</h2>
+<p>&#x4F7F;&#x7528;matplotlib&#x753B;&#x56FE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E2D;&#x6587;&#x663E;&#x793A;&#x4E3A;<strong>&#x65B9;&#x6846;</strong>&#xFF0C;&#x5E76;&#x4E14;&#x62A5;&#x9519;</p>
+<pre><code>UserWarning: findfont: Font family [&apos;sans-serif&apos;] not found.
+</code></pre><p>&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x56E0;&#x4E3A;&#x5B57;&#x4F53;&#x6CA1;&#x6709;&#x52A0;&#x8F7D;&#x3002;  </p>
+<ol>
+<li>&#x9996;&#x5148;&#x6211;&#x7684;&#x7CFB;&#x7EDF;&#x91CC;&#x5E76;&#x6CA1;&#x6709;<code>sans-serif</code>&#x8FD9;&#x4E2A;&#x5B57;&#x4F53;</li>
+<li>&#x5176;&#x6B21;&#xFF0C;matplotlib&#x8C03;&#x7528;&#x7684;&#x662F;&#x81EA;&#x8EAB;&#x76EE;&#x5F55;&#x4E0B;&#x7684;ttf&#x5B57;&#x4F53;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7CFB;&#x7EDF;&#x5B57;&#x4F53;&#x3002;</li>
+</ol>
+<h2 id="12-&#x89E3;&#x51B3;"><a name="12-&#x89E3;&#x51B3;" class="anchor-navigation-ex-anchor" href="#12-&#x89E3;&#x51B3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x51B3;</h2>
+<ol>
+<li><p>&#x627E;&#x51FA;&#x5F53;&#x524D;matplotlib&#x8C03;&#x7528;&#x7684;&#x76EE;&#x5F55;</p>
+<pre><code> python3 -c &quot;import matplotlib ; print(matplotlib.matplotlib_fname())&quot;
+</code></pre><p> &#x6211;&#x8FD9;&#x91CC;&#x7684;&#x662F;</p>
+<pre><code> /Users/qiu/.pyenv/versions/myenv/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
+</code></pre></li>
+<li><p>&#x62F7;&#x8D1D;&#x4E00;&#x4EFD;&#x4E2D;&#x6587;&#x5B57;&#x4F53;<code>xx.ttf</code>&#x5230;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;</p>
+<pre><code> /Users/qiu/.pyenv/versions/myenv/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf
+</code></pre><p> &#x6211;&#x7528;&#x7684;&#x662F;<code>SimHei.ttf</code>&#x3002;&#x7406;&#x8BBA;&#x4E0A;&#x5E94;&#x8BE5;&#x6240;&#x6709;&#x80FD;&#x663E;&#x793A;&#x4E2D;&#x6587;&#x7684;ttf&#x7C7B;&#x578B;&#x5B57;&#x4F53;&#x90FD;&#x53EF;&#x4EE5;&#x7684;&#x5427;&#x3002;</p>
+</li>
+<li><p>&#x914D;&#x7F6E;&#x7B2C;&#x4E00;&#x6B65;&#x627E;&#x5230;&#x7684;<code>matplotlibrc</code>&#x6587;&#x4EF6;,&#x53D6;&#x6D88;<code>font.family</code>&#x548C;<code>font.sans-serif</code>&#x524D;&#x9762;&#x7684;<code>#</code>&#x6CE8;&#x91CA;
+&#x6309;&#x4F60;&#x52A0;&#x5165;&#x7684;&#x5B57;&#x4F53;&#xFF0C;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x66F4;&#x6539;,&#x4F8B;&#x5982;&#x6211;&#x8FD9;&#x91CC;:</p>
+<pre><code> font.family         : SimHei
+</code></pre><p> &#x4E0B;&#x9762;&#x662F;&#x5728;&#x6700;&#x524D;&#x9762;&#x63D2;&#x5165;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;<code>SimHei</code>&#x5B57;&#x4F53;</p>
+<pre><code> font.sans-serif     : SimHei, DejaVu Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+</code></pre></li>
+<li><p>&#x5220;&#x9664;matplotlib&#x7684;&#x7F13;&#x51B2;
+ &#x6BCF;&#x6B21;&#x52A0;&#x5165;&#x4E86;&#x65B0;&#x5B57;&#x4F53;&#x90FD;&#x8981;&#x5220;&#x9664;&#x7F13;&#x5B58;&#x3002;
+ &#x7F13;&#x51B2;&#x76EE;&#x5F55;&#x662F;</p>
+<pre><code> ~/.matplotlib
+</code></pre><p> <code>rm fontList.py3k.cache</code>&#x6216;&#x8005;<code>rm fontList.cache</code>&#x3002;</p>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x4E2D;&#x6587;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x3002;</p>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="pyenv.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: pyenv管理python版本">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"解决matplotlib中文乱码","level":"1.2.2","depth":2,"previous":{"title":"pyenv管理python版本","level":"1.2.1","depth":2,"path":"source/environment/pyenv.md","ref":"source/environment/pyenv.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","anchor-navigation-ex","sitemap-general"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://blog.qiujinfeng.com/book/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","float":{"showLevelIcon":true,"level1Icon":"fa fa-circle-o-right","level2Icon":"fa fa-circle","level3Icon":"fa fa-circle-o"},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"titile":"高等数学笔记本","theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*","description":"用来写我的高数笔记"},"file":{"path":"source/environment/matplotlib.md","mtime":"2017-03-20T10:46:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-20T10:47:30.518Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
